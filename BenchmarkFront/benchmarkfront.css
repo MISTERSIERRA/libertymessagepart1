@@ -1,0 +1,35 @@
+body
+{
+	background-color: #373737;
+	/*background-color: #FFFFFF;*/
+}
+.button
+{
+	background-color: #373737;
+	border: 2px solid black;
+	border-radius: 20px;
+}
+.input
+{
+	background-color: #373737;
+	border: 2px solid black;
+	border-radius: 10px;
+	width: 200px;
+}
+.input-area
+{
+	background-color: #373737;
+	border: 2px solid black;
+	border-radius: 10px;
+	width: 200px;
+	resize: none;
+}
+.button:hover
+{
+	background-color: black;
+	color: #373737;
+}
+input[type='checkbox']
+{
+	filter: grayscale(100%);
+}
