@@ -1,13 +1,25 @@
-let $target_button = document.getElementById("boutonEnvoyer");
-let $target_result = document.getElementById("result");
-let objettest = {cle: "valeur"}; 
+let $targetButton = document.getElementById("boutonEnvoyer");
+let $targetResult = document.getElementById("result");
+let $targetCheckbox = document.getElementsByClassName("validCheckbox");
+let $targetInput = document.getElementsByClassName("validinput");
+let objectTest = {};
 let datatest = "";
-
 var request = new XMLHttpRequest(); /* nouvelle requête */
 
-$target_button.addEventListener("click", function fonction_send(e) {
+function addInputByTheCheckbox() {
+	for(let idClass = 0; idClass < $targetCheckbox.length; idClass++) {
+		if($targetCheckbox[idClass].checked) {
+			console.log($targetInput[idClass].name+" => "+$targetInput[idClass].value);
+			objectTest[$targetInput[idClass].name] = $targetInput[idClass].value;
+			
+		}
+	}
+}
+
+$targetButton.addEventListener("click", function fonction_send(e) {
 	e.preventDefault();	
-	datatest = JSON.stringify(objettest);
+	addInputByTheCheckbox();
+	datatest = JSON.stringify(objectTest);
 	/* préchargement de la récupération de réponse */
 
 	request.onreadystatechange = function() {
@@ -17,11 +29,11 @@ $target_button.addEventListener("click", function fonction_send(e) {
 	       	
 			console.log("Réponse reçue");
 			console.log(response); /* voir l'objet réponse en console */
-			$target_result.textContent = response.reponse;
+			$targetResult.textContent = response.reponse;
 	    }
 	};
 	console.log(datatest);
-	request.open('POST', 'http://localhost/TEST/requeteajax.php', true);
+	request.open('POST', 'http://localhost/libertymessagepart2/BenchmarkBack/benchmarkback.php', true);
 	request.send(datatest); /* envoi requête */
 	return false;
 });
