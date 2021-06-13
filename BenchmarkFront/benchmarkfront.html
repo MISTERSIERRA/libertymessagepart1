@@ -8,7 +8,7 @@
     <body> <!-- COM -->
       <div>
         
-        <div>
+        <div class="custom-top-title">
           <h1>BENCHMARK JS
           <input class="button" id="boutonEnvoyer" type="button" value="OK">
           </h1>
@@ -17,62 +17,176 @@
         </div>
 
         <div>
-          <hr>
+          <hr><br>
 
-          <span>// </span><br>
-          <span>=> createAccount / connectUser / logOutUser / createRoom </span><br>
-          <span>=> sendMessage / viewMessages / viewRooms / modifyUserName </span><br>
-          <span>=> modifyPassword / deleteRoom / deleteAccount </span><br><br>
-          <label>Action : "action"</label><br>
-          <input class="validinput input" id="" type="text" name="action" placeholder="">
+          <span>// createAccount</span><br><br>
+          <label>action : </label><br>
+          <input class="validinput input" id="" type="text" name="action" placeholder="createAccount" value="createAccount">
           <input id="" class="validCheckbox" type="checkbox" name="" value=""><br>
-          <br><hr>
-
-          <span>// createAccount</span><br>
-          <span>=> username=input / password=input </span><br><br>
-          <label>Login : "username"</label><br>
+          <label>username : </label><br>
           <input id="" class="validinput input" type="text" placeholder="" name="username">
           <input id="" class="validCheckbox" type="checkbox" value=""><br>
-          <label>Mot de passe : "password"</label><br>
+          <label>password : </label><br>
           <input class="validinput input" id="" type="text" placeholder="" name="password">
           <input id="" class="validCheckbox" type="checkbox" value=""><br>
           <br><hr><br>
 
-          <span>// connectUser</span><br>
-          <span>=> username=input / password=input </span><br><br>
-          <label>Login : "username"</label><br>
+          <span>// connectUser</span><br><br>
+          <label>action : </label><br>
+          <input class="validinput input" id="" type="text" name="action" placeholder="connectUser" value="connectUser">
+          <input id="" class="validCheckbox" type="checkbox" name="" value=""><br>
+          <label>username : </label><br>
           <input id="" class="validinput input" type="text" placeholder="" name="username">
           <input id="" class="validCheckbox" type="checkbox" value=""><br>
-          <label>Mot de passe : "password"</label><br>
+          <label>password : </label><br>
           <input class="validinput input" id="" type="text" placeholder="" name="password">
           <input id="" class="validCheckbox" type="checkbox" value=""><br>
           <br><hr><br>
 
-          <span>// logOutUser</span><br>
-          <span>=> username=input / password=input </span><br><br>
-          <label>Login : "username"</label><br>
-          <input id="" class="validinput input" type="text" placeholder="" name="username">
-          <input id="" class="validCheckbox" type="checkbox" value=""><br>
-          <label>Mot de passe : "password"</label><br>
-          <input class="validinput input" id="" type="text" placeholder="" name="password">
-          <input id="" class="validCheckbox" type="checkbox" value=""><br>
-          <br><hr><br>
-
-          <label>Utilisateur : "username"</label><br>
+          <span>// logOutUser</span><br><br>
+          <label>action : </label><br>
+          <input class="validinput input" id="" type="text" name="action" placeholder="logOutUser" value="logOutUser">
+          <input id="" class="validCheckbox" type="checkbox" name="" value=""><br>
+          <label>username : </label><br>
           <input class="validinput input" id="" type="text" placeholder="" name="username">
           <input id="" class="validCheckbox" type="checkbox" name="" value=""><br>
-          <label>Token : "token"</label><br>
+          <label>token : </label><br>
           <input class="validinput input" id="" type="text" placeholder="" name="token">
           <input id="" class="validCheckbox" type="checkbox" name="" value=""><br>
           <br><hr><br>
 
-          <label>Salon : "room"</label><br>
-          <input class="validinput input" id="" type="text" placeholder="" name="room">
+          <span>// createRoom</span><br><br>
+          <label>action : </label><br>
+          <input class="validinput input" id="" type="text" name="action" placeholder="createRoom" value="createRoom">
           <input id="" class="validCheckbox" type="checkbox" name="" value=""><br>
-          <label>Message : "message"</label><br>
+          <label>username : </label><br>
+          <input class="validinput input" id="" type="text" placeholder="" name="username">
+          <input id="" class="validCheckbox" type="checkbox" name="" value=""><br>
+          <label>token : </label><br>
+          <input class="validinput input" id="" type="text" placeholder="" name="token">
+          <input id="" class="validCheckbox" type="checkbox" name="" value=""><br>
+          <label>target : </label><br>
+          <input class="validinput input" id="" type="text" placeholder="" name="target">
+          <input id="" class="validCheckbox" type="checkbox" name="" value=""><br>
+          <br><hr><br>
+
+          <span>// sendMessage</span><br><br>
+          <label>action : </label><br>
+          <input class="validinput input" id="" type="text" name="action" placeholder="sendMessage" value="sendMessage">
+          <input id="" class="validCheckbox" type="checkbox" name="" value=""><br>
+          <label>username : </label><br>
+          <input class="validinput input" id="" type="text" placeholder="" name="username">
+          <input id="" class="validCheckbox" type="checkbox" name="" value=""><br>
+          <label>token : </label><br>
+          <input class="validinput input" id="" type="text" placeholder="" name="token">
+          <input id="" class="validCheckbox" type="checkbox" name="" value=""><br>
+          <label>author : </label><br>
+          <input class="validinput input" id="" type="text" placeholder="" name="author">
+          <input id="" class="validCheckbox" type="checkbox" name="" value=""><br>
+          <label>roomName : </label><br>
+          <input class="validinput input" id="" type="text" placeholder="" name="roomName">
+          <input id="" class="validCheckbox" type="checkbox" name="" value=""><br>
+          <label>message : </label><br>
           <textarea class="validinput input" rows="1" 
           placeholder="" resize="none" name="message"></textarea>
           <input id="" class="validCheckbox" type="checkbox" name="" value=""><br>
+          <br><hr><br>
+
+          <span>// viewMessages</span><br><br>
+          <label>action : </label><br>
+          <input class="validinput input" id="" type="text" name="action" placeholder="viewMessages" value="viewMessages">
+          <input id="" class="validCheckbox" type="checkbox" name="" value=""><br>
+          <label>username : </label><br>
+          <input class="validinput input" id="" type="text" placeholder="" name="username">
+          <input id="" class="validCheckbox" type="checkbox" name="" value=""><br>
+          <label>token : </label><br>
+          <input class="validinput input" id="" type="text" placeholder="" name="token">
+          <input id="" class="validCheckbox" type="checkbox" name="" value=""><br>
+          <label>author : </label><br>
+          <input class="validinput input" id="" type="text" placeholder="" name="author">
+          <input id="" class="validCheckbox" type="checkbox" name="" value=""><br>
+          <label>roomName : </label><br>
+          <input class="validinput input" id="" type="text" placeholder="" name="roomName">
+          <input id="" class="validCheckbox" type="checkbox" name="" value=""><br>
+          <br><hr><br>
+
+          <span>// viewRooms</span><br><br>
+          <label>action : </label><br>
+          <input class="validinput input" id="" type="text" name="action" placeholder="viewRooms" value="viewRooms">
+          <input id="" class="validCheckbox" type="checkbox" name="" value=""><br>
+          <label>username : </label><br>
+          <input class="validinput input" id="" type="text" placeholder="" name="username">
+          <input id="" class="validCheckbox" type="checkbox" name="" value=""><br>
+          <label>token : </label><br>
+          <input class="validinput input" id="" type="text" placeholder="" name="token">
+          <input id="" class="validCheckbox" type="checkbox" name="" value=""><br>
+          <br><hr><br>
+
+          <span>// modifyUserName</span><br><br>
+          <label>action : </label><br>
+          <input class="validinput input" id="" type="text" name="action" placeholder="modifyUserName" value="modifyUserName">
+          <input id="" class="validCheckbox" type="checkbox" name="" value=""><br>
+          <label>username : </label><br>
+          <input class="validinput input" id="" type="text" placeholder="" name="username">
+          <input id="" class="validCheckbox" type="checkbox" name="" value=""><br>
+          <label>token : </label><br>
+          <input class="validinput input" id="" type="text" placeholder="" name="token">
+          <input id="" class="validCheckbox" type="checkbox" name="" value=""><br>
+          <label>password : </label><br>
+          <input class="validinput input" id="" type="text" placeholder="" name="password">
+          <input id="" class="validCheckbox" type="checkbox" value=""><br>
+          <label>newusername : </label><br>
+          <input class="validinput input" id="" type="text" placeholder="" name="newusername">
+          <input id="" class="validCheckbox" type="checkbox" value=""><br>
+          <br><hr><br>
+
+          <span>// modifyPassword</span><br><br>
+          <label>action : </label><br>
+          <input class="validinput input" id="" type="text" name="action" placeholder="modifyPassword" value="modifyPassword">
+          <input id="" class="validCheckbox" type="checkbox" name="" value=""><br>
+          <label>username : </label><br>
+          <input class="validinput input" id="" type="text" placeholder="" name="username">
+          <input id="" class="validCheckbox" type="checkbox" name="" value=""><br>
+          <label>token : </label><br>
+          <input class="validinput input" id="" type="text" placeholder="" name="token">
+          <input id="" class="validCheckbox" type="checkbox" name="" value=""><br>
+          <label>password : </label><br>
+          <input class="validinput input" id="" type="text" placeholder="" name="password">
+          <input id="" class="validCheckbox" type="checkbox" value=""><br>
+          <label>newpassword : </label><br>
+          <input class="validinput input" id="" type="text" placeholder="" name="newpassword">
+          <input id="" class="validCheckbox" type="checkbox" value=""><br>
+          <br><hr><br>
+
+          <span>// deleteRoom</span><br><br>
+          <label>action : </label><br>
+          <input class="validinput input" id="" type="text" name="action" placeholder="deleteRoom" value="deleteRoom">
+          <input id="" class="validCheckbox" type="checkbox" name="" value=""><br>
+          <label>username : </label><br>
+          <input id="" class="validinput input" type="text" placeholder="" name="username">
+          <input id="" class="validCheckbox" type="checkbox" value=""><br>
+          <label>token : </label><br>
+          <input class="validinput input" id="" type="text" placeholder="" name="token">
+          <input id="" class="validCheckbox" type="checkbox" name="" value=""><br>
+          <label>roomName : </label><br>
+          <input class="validinput input" id="" type="text" placeholder="" name="roomName">
+          <input id="" class="validCheckbox" type="checkbox" name="" value=""><br>
+          <br><hr><br>
+
+          <span>// deleteAccount</span><br><br>
+          <label>action : </label><br>
+          <input class="validinput input" id="" type="text" name="action" placeholder="deleteAccount" value="deleteAccount">
+          <input id="" class="validCheckbox" type="checkbox" name="" value=""><br>
+          <label>username : </label><br>
+          <input id="" class="validinput input" type="text" placeholder="" name="username">
+          <input id="" class="validCheckbox" type="checkbox" value=""><br>
+          <label>password : </label><br>
+          <input class="validinput input" id="" type="text" placeholder="" name="password">
+          <input id="" class="validCheckbox" type="checkbox" value=""><br>
+          <label>token : </label><br>
+          <input class="validinput input" id="" type="text" placeholder="" name="token">
+          <input id="" class="validCheckbox" type="checkbox" name="" value=""><br>
+          <br><hr><br>
 
         </div>
 

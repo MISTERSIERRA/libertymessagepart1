@@ -6,6 +6,10 @@ let objectTest = {};
 let datatest = "";
 var request = new XMLHttpRequest(); /* nouvelle requête */
 
+for(let idStartClass = 0; idStartClass < $targetCheckbox.length; idStartClass++) {
+	$targetCheckbox[idStartClass].checked = false;
+}
+
 function addInputByTheCheckbox() {
 	for(let idClass = 0; idClass < $targetCheckbox.length; idClass++) {
 		if($targetCheckbox[idClass].checked) {
