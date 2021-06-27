@@ -5,7 +5,7 @@
 }
 .full-block-page-dialogue svg
 {
-    height: 30px;
+    height: 40px;
     fill: #212529;
 }
 .full-block-page-dialogue svg:hover, 
@@ -13,4 +13,9 @@
 .full-block-page-dialogue svg:active 
 {
     fill: #00387B;
+}
+.custom-text-area
+{
+    resize: none;
+    height: 40px;
 }
