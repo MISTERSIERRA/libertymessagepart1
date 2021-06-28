@@ -1,6 +1,60 @@
-<div class="full-block-page-login mx-auto px-2 py-2 border border-1 border-dark">
-    <div class="">
-        <p>b-login works!</p>
+<div class="full-block-page-login mx-auto px-2 py-2">
+    <div class="mx-5">
+    
+        <div *ngIf="true" class="login-menu-1">
+            <button class="btn btn-dark my-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCreateAccount1" aria-expanded="false" aria-controls="collapseCreateAccount1">
+                Nouveau compte
+            </button>
+        </div>
+
+        <div *ngIf="true" class="collapse card card-body" id="collapseCreateAccount1">
+            <div class="form-group">
+                <label for="CreateAccount1">Identifiant</label>
+                <input type="text" class="form-control border-dark" id="CreateAccount1" placeholder="Identifiant">
+            </div>
+            <div class="form-group">
+                <label for="CreateAccountPassword1">Password</label>
+                <input type="password" class="form-control border-dark" id="CreateAccountPassword1" placeholder="Mot de passe">
+                <input type="password" class="form-control border-dark my-1" id="CreateAccountPassword2" placeholder="Vérification mot de passe">
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input border-dark" id="CreateAccountCheck1">
+                <label class="form-check-label" for="CreateAccountCheck1">J'ai lu les 
+                    <a class="" routerLink="/mentions-legales">mentions legales</a>
+                </label>
+            </div>
+            <button type="button" class="btn btn-dark">Créer compte</button>
+        </div>
+
+        <div *ngIf="true" class="login-menu-2">
+            <button class="btn btn-dark my-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseConnectUser1" aria-expanded="false" aria-controls="collapseConnectUser1">
+                Se connecter
+            </button>
+        </div>
+
+        <div *ngIf="true" class="collapse card card-body" id="collapseConnectUser1">
+            <div class="form-group">
+                <label for="ConnectUser1">Identifiant</label>
+                <input type="text" class="form-control border-dark" id="ConnectUser1" placeholder="Identifiant">
+            </div>
+            <div class="form-group">
+                <label for="ConnectUserPassword1">Password</label>
+                <input type="password" class="form-control mb-1 border-dark" id="ConnectUserPassword1" placeholder="Mot de passe">
+            </div>
+            <button type="button" class="btn btn-dark">Se connecter</button>
+        </div>
+
+        <div *ngIf="true" class="login-menu-3">
+            <button class="btn btn-danger my-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLogOutUser1" aria-expanded="false" aria-controls="collapseLogOutUser1">
+                Se deconnecter
+            </button>
+        </div>
+
+
+        <div class="full-block-page-login-after">
+            <img class="" src="../../assets/all-content/pictures/libertymessage-picture-light.png" alt="">
+        </div>
+
     </div>
 </div>
 

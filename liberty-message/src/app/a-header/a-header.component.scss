@@ -1,12 +1,12 @@
 // use media queries et position fixed et pour discuss fixed aussi au bottom
 .custom-block-page-header
 {
-    height: 75px;
+    height: 80px;
     max-width: 1000px;
 }
 .custom-header-logo
 {
-    height: 25px;
+    height: 30px;
     width: 100%;
     text-align: center;
 }
@@ -33,19 +33,25 @@
     border: solid 2px #00387B !important;
 }
 
+.notification-bloc-number
+{
+    position: absolute;
+    top: 0;
+    left: 5px;
+}
 
 @media screen and (min-width: 575px){
     .custom-block-page-header
     {
-        min-height: 80px;
+        min-height: 90px;
     }
     .custom-header-logo
     {
-        height: 30px;
+        height: 35px;
     }
     .custom-header-icon
     {
-        height: 50px;
+        height: 55px;
     }
 }
 

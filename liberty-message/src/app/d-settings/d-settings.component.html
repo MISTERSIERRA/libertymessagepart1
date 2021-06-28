@@ -1,3 +1,58 @@
-<div class="mx-auto border border-3 border-dark full-block-page-settings">
-    <p>d-settings works!</p>
+<div class="full-block-page-settings mx-auto px-2 py-2">
+    <div class="mx-5">
+        
+        <div class="settings-menu-1">
+            <button class="btn btn-dark my-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseModifyUserName1" aria-expanded="false" aria-controls="collapseModifyUserName1">
+                Modifier identifiant
+            </button>
+        </div>
+
+        <div class="collapse card card-body" id="collapseModifyUserName1">
+            <div class="form-group">
+                <label for="ModifyUserName1">Nouvel identifiant</label>
+                <input type="text" class="form-control border-dark" id="ModifyUserName1" placeholder="Identifiant">
+            </div>
+            <div class="form-group">
+                <label for="ModifyUserNamePassword1">Password</label>
+                <input type="password" class="form-control border-dark my-1" id="ModifyUserNamePassword1" placeholder="Mot de passe">
+            </div>
+            <button type="button" class="btn btn-dark">Valider</button>
+        </div>
+
+        <div class="settings-menu-2">
+            <button class="btn btn-dark my-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseModifyPassword1" aria-expanded="false" aria-controls="collapseModifyPassword1">
+                Modifier mot de passe
+            </button>
+        </div>
+
+        <div class="collapse card card-body" id="collapseModifyPassword1">
+            <div class="form-group">
+                <label for="ModifyPasswordNew1">Password</label>
+                <input type="password" class="form-control border-dark" id="ModifyPasswordOld1" placeholder="Mot de passe">
+                <input type="password" class="form-control border-dark my-1" id="ModifyPasswordNew1" placeholder="Nouveau mot de passe">
+                <input type="password" class="form-control border-dark my-1" id="ModifyPasswordNew2" placeholder="Vérification">
+            </div>
+            <button type="button" class="btn btn-dark">Valider</button>
+        </div>
+
+        <div class="settings-menu-3">
+            <button class="btn btn-dark my-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDeleteAccount1" aria-expanded="false" aria-controls="collapseDeleteAccount1">
+                Supprimer compte
+            </button>
+        </div>
+
+        <div class="collapse card card-body" id="collapseDeleteAccount1">
+            <div class="form-group">
+                <label for="DeleteAccountPassword1">Password</label>
+                <input type="password" class="form-control border-dark my-1" id="DeleteAccountPassword1" placeholder="Mot de passe">
+            </div>
+            <button type="button" class="btn btn-dark">Valider</button>
+        </div>
+
+
+        <div class="mt-4 settings-menu-4">
+            <a class="" routerLink="/mentions-legales">mentions legales</a>
+        </div>
+
+    </div>
 </div>
