@@ -1,8 +1,16 @@
-<div class="full-block-page-discuss mx-auto border border-3 border-dark">
-    <div class="">
-        <a class="" routerLink="/dialogue"><p>dialogue</p></a>
-        <a class="" routerLink="/mentions-legales"><p>mentions-legales</p></a>
-        <a class="" routerLink="/not-found"><p>not-found</p></a>
+<div class="full-block-page-discuss mx-auto">
+   
+    <div class="px-3">
+    
+        <div class="my-1 border border-dark rounded" *ngFor="let elementRoomObject of roomlist">
+            <a class="btn-light" routerLink="/dialogue" 
+            (click)="launchViewMessages(elementRoomObject.roomname, elementRoomObject.target)">
+                <div class="mx-2">{{elementRoomObject.target}}</div>
+                <div class="mx-2">{{elementRoomObject.datelastmessage}}</div>
+            </a>
+        </div>
+    
     </div>
+
 </div>
 

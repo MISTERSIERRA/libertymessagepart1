@@ -1,47 +1,19 @@
 <div class="mx-auto pQx-3 full-block-page-dialogue">
 
-    <div class="px-3">
-    <p>i-dialogue works!</p>
-    <p>i-dialogue works!</p>
-    <p>i-dialogue works!</p>
-    <p>i-dialogue works!</p>
-    <p>i-dialogue works!</p>
-    <p>i-dialogue works!</p>
-    <p>i-dialogue works!</p>
-    <p>i-dialogue works!</p>
-    <p>i-dialogue works!</p>
-    <p>i-dialogue works!</p>
-    <p>i-dialogue works!</p>
-    <p>i-dialogue works!</p>
-    <p>i-dialogue works!</p>
-    <p>i-dialogue works!</p>
-    <p>i-dialogue works!</p>
-    <p>i-dialogue works!</p>
-    <p>i-dialogue works!</p>
-    <p>i-dialogue works!</p>
-    <p>i-dialogue works!</p>
-    <p>i-dialogue works!</p>
-    <p>i-dialogue works!</p>
-    <p>i-dialogue works!</p>
-    <p>i-dialogue works!</p>
-    <p>i-dialogue works!</p>
-    <p>i-dialogue works!</p>
-    <p>i-dialogue works!</p>
-    <p>i-dialogue works!</p>
-    <p>i-dialogue works!</p>
-    <p>i-dialogue works!</p>
-    <p>i-dialogue works!</p>
-    <p>i-dialogue works!</p>
-    <p>i-dialogue works!</p>
-    <p>i-dialogue works!</p>
-    <p>i-dialogue works!</p>
-    <p>i-dialogue works!</p>
+    <div class="px-3 custom-dialogue-content">
+    
+        <div class="my-1 border border-dark rounded" *ngFor="let elementMessageObject of messagelist">
+            <div class="mx-2">{{elementMessageObject.author}} :</div>
+            <div class="mx-2">{{elementMessageObject.messagetext}}</div>
+            <div class="mx-2">{{elementMessageObject.messagedate}}</div>
+        </div>
+    
     </div>
 
 
-    <div class="position-sticky fixed-bottom">
-
-        <div class="d-flex ">
+    <div class="position-fixed fixed-bottom">
+        <div class="btn-dark custom-target-name">{{targetname}}</div>
+        <div class="d-flex bg-white">
             <div class="input-group input-group-sm">
                 <!-- <input type="text" class="form-control border-dark rounded" aria-label="Small" aria-describedby="inputGroup-sizing-sm"> -->
                 <textarea class="form-control border-dark rounded custom-text-area" rows="1" aria-label="textarea"></textarea>

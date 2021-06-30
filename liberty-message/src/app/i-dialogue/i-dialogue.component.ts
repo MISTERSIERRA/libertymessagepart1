@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { DataServices } from '../services/data-services';
 import { Subscription } from 'rxjs';
 
@@ -10,9 +10,18 @@ import { Subscription } from 'rxjs';
 export class IDialogueComponent implements OnInit {
 
   constructor(private dataServices: DataServices) {
-    // this.variable = this.dataServices.variable;
+    this.messagelist = this.dataServices.messagelist;
   }
 
-  ngOnInit() {}
+  targetname = "destinataire";
+
+  messagelist = [];
+
+  ngOnInit() {
+    this.messagelist = this.dataServices.messagelist;
+    this.targetname = this.dataServices.target;
+  }
+
+  
 
 }

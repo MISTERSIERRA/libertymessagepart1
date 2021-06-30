@@ -15,7 +15,7 @@ $newusername = "";
 $password = "";
 $newpassword = "";
 $token = "";
-$target = "";
+target = "";
 $roomname = "";
 $message = "";
 
@@ -25,8 +25,47 @@ name = "";
 status = 'nologged';
 token = 'none';
 number: '';
-messagelist = [];   // contenant les messages [{messagedate: '', author: '', messagetext: ''}, {}]
-roomlist = [];      // contenant les discussions [{target: '', roomname: '', datelastmessage: ''}, {}]
+// contenant les messages [{messagedate: '', author: '', messagetext: ''}, {}]
+messagelist = [
+    {messagedate: '21/06/21 21:18:24', author: 'leto', messagetext: 'messagemessagemessagemessagemessagemessage'}, 
+    {messagedate: '21/06/21 21:18:24', author: 'leto2', messagetext: 'messagemessagemessagemessagemessagemessage'}, 
+    {messagedate: '21/06/21 21:18:24', author: 'leto', messagetext: 'messagemessagemessagemessagemessagemessage'}, 
+    {messagedate: '21/06/21 21:18:24', author: 'leto', messagetext: 'messagemessagemessagemessagemessagemessage'}, 
+    {messagedate: '21/06/21 21:18:24', author: 'leto', messagetext: 'messagemessagemessagemessagemessagemessage'}, 
+    {messagedate: '21/06/21 21:18:24', author: 'leto', messagetext: 'messagemessagemessagemessagemessagemessage'}, 
+    {messagedate: '21/06/21 21:18:24', author: 'leto', messagetext: 'messagemessagemessagemessagemessagemessage'}, 
+    {messagedate: '21/06/21 21:18:24', author: 'leto', messagetext: 'messagemessagemessagemessagemessagemessage'}, 
+    {messagedate: '21/06/21 21:18:24', author: 'leto', messagetext: 'messagemessagemessagemessagemessagemessage'}, 
+    {messagedate: '21/06/21 21:18:24', author: 'leto', messagetext: 'messagemessagemessagemessagemessagemessage'}
+];
+// contenant les discussions [{target: '', roomname: '', datelastmessage: ''}, {}]
+roomlist = [
+    {target: 'moneo1', roomname: '545335f79d733f980070c3b54e55018f47d04014fe7bde46653a8daa21c5a2b2', datelastmessage: '19/06/21 20:06:35'}, 
+    {target: 'moneo2', roomname: '545335f79d733f980070c3b54e55018f47d04014fe7bde46653a8daa21c5a2b2', datelastmessage: '19/06/21 20:06:35'}, 
+    {target: 'moneo3', roomname: '545335f79d733f980070c3b54e55018f47d04014fe7bde46653a8daa21c5a2b2', datelastmessage: '19/06/21 20:06:35'}, 
+    {target: 'moneo1', roomname: '545335f79d733f980070c3b54e55018f47d04014fe7bde46653a8daa21c5a2b2', datelastmessage: '19/06/21 20:06:35'}, 
+    {target: 'moneo2', roomname: '545335f79d733f980070c3b54e55018f47d04014fe7bde46653a8daa21c5a2b2', datelastmessage: '19/06/21 20:06:35'}, 
+    {target: 'moneo3', roomname: '545335f79d733f980070c3b54e55018f47d04014fe7bde46653a8daa21c5a2b2', datelastmessage: '19/06/21 20:06:35'}, 
+    {target: 'moneo1', roomname: '545335f79d733f980070c3b54e55018f47d04014fe7bde46653a8daa21c5a2b2', datelastmessage: '19/06/21 20:06:35'}, 
+    {target: 'moneo2', roomname: '545335f79d733f980070c3b54e55018f47d04014fe7bde46653a8daa21c5a2b2', datelastmessage: '19/06/21 20:06:35'}, 
+    {target: 'moneo3', roomname: '545335f79d733f980070c3b54e55018f47d04014fe7bde46653a8daa21c5a2b2', datelastmessage: '19/06/21 20:06:35'}, 
+    {target: 'moneo1', roomname: '545335f79d733f980070c3b54e55018f47d04014fe7bde46653a8daa21c5a2b2', datelastmessage: '19/06/21 20:06:35'}, 
+    {target: 'moneo2', roomname: '545335f79d733f980070c3b54e55018f47d04014fe7bde46653a8daa21c5a2b2', datelastmessage: '19/06/21 20:06:35'}, 
+    {target: 'moneo3', roomname: '545335f79d733f980070c3b54e55018f47d04014fe7bde46653a8daa21c5a2b2', datelastmessage: '19/06/21 20:06:35'}, 
+    {target: 'moneo1', roomname: '545335f79d733f980070c3b54e55018f47d04014fe7bde46653a8daa21c5a2b2', datelastmessage: '19/06/21 20:06:35'}, 
+    {target: 'moneo2', roomname: '545335f79d733f980070c3b54e55018f47d04014fe7bde46653a8daa21c5a2b2', datelastmessage: '19/06/21 20:06:35'}, 
+    {target: 'moneo3', roomname: '545335f79d733f980070c3b54e55018f47d04014fe7bde46653a8daa21c5a2b2', datelastmessage: '19/06/21 20:06:35'}, 
+    {target: 'moneo1', roomname: '545335f79d733f980070c3b54e55018f47d04014fe7bde46653a8daa21c5a2b2', datelastmessage: '19/06/21 20:06:35'}, 
+    {target: 'moneo2', roomname: '545335f79d733f980070c3b54e55018f47d04014fe7bde46653a8daa21c5a2b2', datelastmessage: '19/06/21 20:06:35'}, 
+    {target: 'moneo3', roomname: '545335f79d733f980070c3b54e55018f47d04014fe7bde46653a8daa21c5a2b2', datelastmessage: '19/06/21 20:06:35'}, 
+    {target: 'moneo1', roomname: '545335f79d733f980070c3b54e55018f47d04014fe7bde46653a8daa21c5a2b2', datelastmessage: '19/06/21 20:06:35'}, 
+    {target: 'moneo2', roomname: '545335f79d733f980070c3b54e55018f47d04014fe7bde46653a8daa21c5a2b2', datelastmessage: '19/06/21 20:06:35'}, 
+    {target: 'moneo3', roomname: '545335f79d733f980070c3b54e55018f47d04014fe7bde46653a8daa21c5a2b2', datelastmessage: '19/06/21 20:06:35'}, 
+    {target: 'moneo1', roomname: '545335f79d733f980070c3b54e55018f47d04014fe7bde46653a8daa21c5a2b2', datelastmessage: '19/06/21 20:06:35'}, 
+    {target: 'moneo2', roomname: '545335f79d733f980070c3b54e55018f47d04014fe7bde46653a8daa21c5a2b2', datelastmessage: '19/06/21 20:06:35'}, 
+    {target: 'moneo3', roomname: '545335f79d733f980070c3b54e55018f47d04014fe7bde46653a8daa21c5a2b2', datelastmessage: '19/06/21 20:06:35'}, 
+    {target: 'moneo4', roomname: '545335f79d733f980070c3b54e55018f47d04014fe7bde46653a8daa21c5a2b2', datelastmessage: '19/06/21 20:06:35'}
+];
 
 
 resetDataAfterRequest() {
