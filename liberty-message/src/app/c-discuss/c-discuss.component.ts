@@ -9,19 +9,35 @@ import { Subscription } from 'rxjs';
 })
 export class CDiscussComponent implements OnInit {
 
+  roomlist = [];
+  roomnameToDelete = "";
+
   constructor(private dataServices: DataServices) {
     this.roomlist = this.dataServices.roomlist;
   }
-
-  roomlist = [];
 
   ngOnInit() {
     this.roomlist = this.dataServices.roomlist;
   }
 
+  activateDeleteButton(roomname) {
+    if(this.roomnameToDelete === roomname){
+      this.roomnameToDelete = "";}
+    else{
+      this.roomnameToDelete = roomname;
+    }
+  }
+
   launchViewMessages(roomname, targetname) {
     this.dataServices.target = targetname;
     // lancer le programme dans services viewMessages()
+    console.log('launchViewMessages');
+  }
+
+  launchDeletRoom(roomname) {
+    this.dataServices.$roomname = this.roomnameToDelete;
+    // lancer le programme dans services deleteRoom()
+    console.log('launchDeletRoom');
   }
 
 

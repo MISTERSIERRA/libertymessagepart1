@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { DataServices } from '../services/data-services';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-d-settings',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DSettingsComponent implements OnInit {
 
-  constructor() { }
+  usernameEvent: Subscription;
+  username = "";
 
-  ngOnInit(): void {
+  constructor(private dataServices: DataServices) {}
+
+  ngOnInit() {
+    this.usernameEvent = this.dataServices.dataReceived$.
+    subscribe(
+      () => {
+        this.username = this.dataServices.name;
+      }, //pour chaque next 
+
+      () => {console.log("erreur de subscribe");}, //en cas d'erreur
+      () => {console.log("changement number");} //en cas de complet
+    );
   }
 
 }

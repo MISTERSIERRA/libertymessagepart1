@@ -1,18 +1,15 @@
 // use media queries et position fixed et pour discuss fixed aussi au bottom
 .custom-block-page-header
 {
-    height: 80px;
     max-width: 1000px;
 }
 .custom-header-logo
 {
-    height: 30px;
     width: 100%;
     text-align: center;
 }
 .custom-header-icon
 {
-    height: 50px;
     padding: 10px;
     text-align: center;
 }
@@ -38,6 +35,21 @@
     position: absolute;
     top: 0;
     left: 5px;
+}
+
+@media screen and (max-width: 574px){
+    .custom-block-page-header
+    {
+        min-height: 80px;
+    }
+    .custom-header-logo
+    {
+        height: 30px;
+    }
+    .custom-header-icon
+    {
+        height: 50px;
+    }
 }
 
 @media screen and (min-width: 575px){

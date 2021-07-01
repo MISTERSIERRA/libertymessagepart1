@@ -9,13 +9,13 @@ import { Subscription } from 'rxjs';
 })
 export class IDialogueComponent implements OnInit {
 
+  messagelist = [];
+
   constructor(private dataServices: DataServices) {
     this.messagelist = this.dataServices.messagelist;
   }
 
   targetname = "destinataire";
-
-  messagelist = [];
 
   ngOnInit() {
     this.messagelist = this.dataServices.messagelist;

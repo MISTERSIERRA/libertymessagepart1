@@ -3,10 +3,28 @@
     max-height: 100%;
     max-width: 1000px;
 }
+.full-block-page-discuss .custom-discuss-content
+{
+    overflow: auto;
+}
+.custom-discuss-link
+{
+    display: block;
+}
 a:link, 
 a:visited, 
 a:hover, 
 a:active
 {
     text-decoration: none;
+}
+.custom-discuss-icon-1 svg
+{
+    fill: #212529;
+    max-width: 36px;
+}
+.custom-discuss-icon-2 svg
+{
+    fill: #212529;
+    max-width: 24px;
 }
