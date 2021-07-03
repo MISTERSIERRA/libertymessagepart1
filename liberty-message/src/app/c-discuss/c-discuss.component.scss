@@ -2,6 +2,7 @@
 {
     max-height: 100%;
     max-width: 1000px;
+    margin-bottom: 60px;
 }
 .full-block-page-discuss .custom-discuss-content
 {
@@ -28,3 +29,16 @@ a:active
     fill: #212529;
     max-width: 24px;
 }
+.custom-discuss-icon-plus
+{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    text-align: right;
+}
+.custom-discuss-icon-plus svg
+{
+    fill: #212529;
+    width: 42px;
+}
+

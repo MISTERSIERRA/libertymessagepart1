@@ -11,6 +11,7 @@ export class CDiscussComponent implements OnInit {
 
   roomlist = [];
   roomnameToDelete = "";
+  displayAddTarget = false;
 
   constructor(private dataServices: DataServices) {
     this.roomlist = this.dataServices.roomlist;
@@ -22,22 +23,51 @@ export class CDiscussComponent implements OnInit {
 
   activateDeleteButton(roomname) {
     if(this.roomnameToDelete === roomname){
-      this.roomnameToDelete = "";}
+      this.roomnameToDelete = "";
+    }
     else{
       this.roomnameToDelete = roomname;
     }
   }
 
+  activateAddTarget() {
+    if(this.displayAddTarget === false){
+      this.displayAddTarget = true;
+    }
+    else{
+      this.displayAddTarget = false;
+    }
+  }
+
   launchViewMessages(roomname, targetname) {
     this.dataServices.target = targetname;
+    this.dataServices.roomname = roomname;
+    let action = 'viewMessages';
+    let objectViewMessages = {};
+
+    objectViewMessages['action'] = action;
+    objectViewMessages['roomname'] = roomname;
+
     // lancer le programme dans services viewMessages()
-    console.log('launchViewMessages');
+    console.log(objectViewMessages);
+
+    this.dataServices.sendRequestTest(objectViewMessages);
   }
 
   launchDeletRoom(roomname) {
-    this.dataServices.$roomname = this.roomnameToDelete;
+    this.dataServices.roomname = roomname;
+    let action = 'deleteRoom';
+    let objectDeleteRoom = {};
+
     // lancer le programme dans services deleteRoom()
-    console.log('launchDeletRoom');
+    
+
+    objectDeleteRoom['action'] = action;
+    objectDeleteRoom['roomname'] = roomname;
+
+    console.log(objectDeleteRoom);
+
+    this.dataServices.sendRequestTest(objectDeleteRoom);
   }
 
 
