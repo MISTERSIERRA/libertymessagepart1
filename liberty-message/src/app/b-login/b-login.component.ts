@@ -19,20 +19,28 @@ export class BLoginComponent implements OnInit {
   ngOnInit() {}
 
   onSubmit(form: NgForm) {
-    console.log(form.value);
-    if(form.value['password'] && form.value['passwordVerify']){
-      if(form.value['password'] === form.value['passwordVerify']){
+    let submitForm = form.value;
+    if(submitForm['password'] && submitForm['passwordVerify']){
+      if(submitForm['password'] === submitForm['passwordVerify']){
         this.verifyPasswordStatus = 'border-dark';
-        this.dataServices.sendRequestTest(form.value);
+        this.dataServices.sendRequestTest(submitForm);
       }
       else{
         this.verifyPasswordStatus = 'border-danger';
       }
-      
     }
     else{
-      this.dataServices.sendRequestTest(form.value);
+      this.dataServices.sendRequestTest(submitForm);
     }
+  }
+
+  launchLogOutUser() {
+    let action = 'logOutUser';
+    let objectLogOut = {};
+
+    objectLogOut['action'] = action;
+
+    this.dataServices.sendRequestTest(objectLogOut);
   }
 
 }

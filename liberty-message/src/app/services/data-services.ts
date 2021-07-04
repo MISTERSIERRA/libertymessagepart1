@@ -68,6 +68,7 @@ sendRequestToPHP(formData) {}
 
 sendRequestTest(formData) {
     console.log("switch");
+    console.log(formData);
     switch(formData.action) {
         case 'createAccount': 
         // formData

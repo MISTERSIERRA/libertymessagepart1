@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { DataServices } from '../services/data-services';
 import { Subscription } from 'rxjs';
 
@@ -9,6 +10,7 @@ import { Subscription } from 'rxjs';
 })
 export class CDiscussComponent implements OnInit {
 
+  discussEvent: Subscription;
   roomlist = [];
   roomnameToDelete = "";
   displayAddTarget = false;
@@ -18,7 +20,18 @@ export class CDiscussComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.roomlist = this.dataServices.roomlist;
+    this.launchViewRooms();
+
+    this.discussEvent = this.dataServices.dataReceived$.
+    subscribe(
+      () => {
+        this.roomlist = this.dataServices.roomlist;
+      }, //pour chaque next 
+
+      () => {console.log("erreur de subscribe");}, //en cas d'erreur
+      () => {console.log("changement number");} //en cas de complet
+    );
+  
   }
 
   activateDeleteButton(roomname) {
@@ -48,9 +61,6 @@ export class CDiscussComponent implements OnInit {
     objectViewMessages['action'] = action;
     objectViewMessages['roomname'] = roomname;
 
-    // lancer le programme dans services viewMessages()
-    console.log(objectViewMessages);
-
     this.dataServices.sendRequestTest(objectViewMessages);
   }
 
@@ -65,10 +75,21 @@ export class CDiscussComponent implements OnInit {
     objectDeleteRoom['action'] = action;
     objectDeleteRoom['roomname'] = roomname;
 
-    console.log(objectDeleteRoom);
-
     this.dataServices.sendRequestTest(objectDeleteRoom);
   }
 
+  onSubmit(form: NgForm) {
+    let submitForm = form.value;
+    this.dataServices.sendRequestTest(submitForm);
+  }
+
+  launchViewRooms() {
+    let action = 'viewRooms';
+    let objectViewRooms = {};
+
+    objectViewRooms['action'] = action;
+
+    this.dataServices.sendRequestTest(objectViewRooms);
+  }
 
 }

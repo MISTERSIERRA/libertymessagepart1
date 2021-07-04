@@ -5,6 +5,7 @@
             {{username}}
         </div>
 
+        <form (ngSubmit)="onSubmit(formModifyUserName); formModifyUserName.reset();" #formModifyUserName="ngForm">
         <div class="settings-menu-1">
             <button class="btn btn-dark my-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseModifyUserName1" aria-expanded="false" aria-controls="collapseModifyUserName1">
                 Modifier identifiant
@@ -14,15 +15,18 @@
         <div class="collapse card card-body" id="collapseModifyUserName1">
             <div class="form-group">
                 <label for="ModifyUserName1">Nouvel identifiant</label>
-                <input type="text" class="form-control border-dark" id="ModifyUserName1" placeholder="Identifiant">
+                <input type="text" name="action" [ngModel]="'modifyUserName'" hidden>
+                <input type="text" class="form-control border-dark" id="ModifyUserName1" placeholder="Identifiant" name="newusername" ngModel required>
             </div>
             <div class="form-group">
                 <label for="ModifyUserNamePassword1">Password</label>
-                <input type="password" class="form-control border-dark my-1" id="ModifyUserNamePassword1" placeholder="Mot de passe">
+                <input type="password" class="form-control border-dark my-1" id="ModifyUserNamePassword1" placeholder="Mot de passe" name="password" ngModel required>
             </div>
-            <button type="button" class="btn btn-dark">Valider</button>
+            <button type="submit" [disabled]="formModifyUserName.invalid" class="btn btn-dark">Valider</button>
         </div>
+        </form>
 
+        <form (ngSubmit)="onSubmit(formModifyPassword); formModifyPassword.reset();" #formModifyPassword="ngForm">
         <div class="settings-menu-2">
             <button class="btn btn-dark my-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseModifyPassword1" aria-expanded="false" aria-controls="collapseModifyPassword1">
                 Modifier mot de passe
@@ -32,13 +36,16 @@
         <div class="collapse card card-body" id="collapseModifyPassword1">
             <div class="form-group">
                 <label for="ModifyPasswordNew1">Password</label>
-                <input type="password" class="form-control border-dark" id="ModifyPasswordOld1" placeholder="Mot de passe">
-                <input type="password" class="form-control border-dark my-1" id="ModifyPasswordNew1" placeholder="Nouveau mot de passe">
-                <input type="password" class="form-control border-dark my-1" id="ModifyPasswordNew2" placeholder="Vérification">
+                <input type="text" name="action" [ngModel]="'modifyPassword'" hidden>
+                <input type="password" class="form-control border-dark" id="ModifyPasswordOld1" placeholder="Mot de passe" name="password" ngModel required>
+                <input type="password" class="form-control my-1" [ngClass]="{'border-dark': modifyPasswordStatus === 'border-dark', 'border-danger border-2': modifyPasswordStatus === 'border-danger'}" id="ModifyPasswordNew1" placeholder="Nouveau mot de passe" name="newpassword" ngModel required>
+                <input type="password" class="form-control my-1" [ngClass]="{'border-dark': modifyPasswordStatus === 'border-dark', 'border-danger border-2': modifyPasswordStatus === 'border-danger'}" id="ModifyPasswordNew2" placeholder="Vérification" name="passwordVerify" ngModel required>
             </div>
-            <button type="button" class="btn btn-dark">Valider</button>
+            <button type="submit" [disabled]="formModifyPassword.invalid" class="btn btn-dark">Valider</button>
         </div>
+        </form>
 
+        <form (ngSubmit)="onSubmit(formDeleteAccount); formDeleteAccount.reset();" #formDeleteAccount="ngForm">
         <div class="settings-menu-3">
             <button class="btn btn-dark my-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDeleteAccount1" aria-expanded="false" aria-controls="collapseDeleteAccount1">
                 Supprimer compte
@@ -48,11 +55,12 @@
         <div class="collapse card card-body" id="collapseDeleteAccount1">
             <div class="form-group">
                 <label for="DeleteAccountPassword1">Password</label>
-                <input type="password" class="form-control border-dark my-1" id="DeleteAccountPassword1" placeholder="Mot de passe">
+                <input type="text" name="action" [ngModel]="'deleteAccount'" hidden>
+                <input type="password" class="form-control border-dark my-1" id="DeleteAccountPassword1" placeholder="Mot de passe" name="password" ngModel required>
             </div>
-            <button type="button" class="btn btn-dark">Valider</button>
+            <button type="submit" [disabled]="formDeleteAccount.invalid" class="btn btn-dark">Valider</button>
         </div>
-
+        </form>
 
         <div class="mt-4 settings-menu-4">
             <a class="" routerLink="/mentions-legales">mentions legales</a>

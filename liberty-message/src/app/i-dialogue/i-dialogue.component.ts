@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { DataServices } from '../services/data-services';
 import { Subscription } from 'rxjs';
 
@@ -22,6 +23,10 @@ export class IDialogueComponent implements OnInit {
     this.targetname = this.dataServices.target;
   }
 
-  
+  onSubmit(form: NgForm) {
+    let submitForm = form.value;
+    
+      this.dataServices.sendRequestTest(submitForm);
+    }
 
 }
