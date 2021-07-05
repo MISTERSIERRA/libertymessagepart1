@@ -140,7 +140,7 @@ sendRequestTest(formData) {
 
     console.log(formData);
     this.objectToSend = formData;
-    this.sendRequestToPHP(this.objectToSend);
+    // this.sendRequestToPHP(this.objectToSend);
 }
 
 }
