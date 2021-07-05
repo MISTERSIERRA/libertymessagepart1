@@ -11,6 +11,7 @@ import { Subscription } from 'rxjs';
 export class CDiscussComponent implements OnInit {
 
   discussEvent: Subscription;
+  intervalRoom: any;
   roomlist = [];
   roomnameToDelete = "";
   displayAddTarget = false;
@@ -20,8 +21,17 @@ export class CDiscussComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.launchViewRooms();
+    console.log("init room");
+    // this.launchViewRooms();
 
+    // lancer requête lecture room toutes les 5 sec
+    this.intervalRoom = setInterval(
+      () => {
+        this.launchViewRooms();
+      }
+      , 5000);
+    
+    // mettre à jour la liste room à chaque retour de requête
     this.discussEvent = this.dataServices.dataReceived$.
     subscribe(
       () => {
@@ -32,6 +42,11 @@ export class CDiscussComponent implements OnInit {
       () => {console.log("changement number");} //en cas de complet
     );
   
+  }
+
+  ngOnDestroy() {
+    console.log("destroy room");
+    clearInterval(this.intervalRoom);
   }
 
   activateDeleteButton(roomname) {
@@ -52,16 +67,10 @@ export class CDiscussComponent implements OnInit {
     }
   }
 
-  launchViewMessages(roomname, targetname) {
-    this.dataServices.target = targetname;
+  prepareViewMessages(roomname, targetname) {
+    console.log("prepare messages");
     this.dataServices.roomname = roomname;
-    let action = 'viewMessages';
-    let objectViewMessages = {};
-
-    objectViewMessages['action'] = action;
-    objectViewMessages['roomname'] = roomname;
-
-    this.dataServices.sendRequestTest(objectViewMessages);
+    this.dataServices.target = targetname;
   }
 
   launchDeletRoom(roomname) {
