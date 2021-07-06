@@ -20,6 +20,7 @@ export class IDialogueComponent implements OnInit {
     this.currentRoomname = this.dataServices.roomname;
     this.currentTarget = this.dataServices.target;
     this.messagelist = this.dataServices.messagelist;
+    this.launchViewMessages();
   }
 
   targetname = "destinataire";
@@ -54,6 +55,9 @@ export class IDialogueComponent implements OnInit {
   ngOnDestroy() {
     console.log("destroy messages");
     clearInterval(this.intervalMessages);
+    this.dataServices.roomname = "";
+    this.dataServices.target = "";
+    this.dataServices.messagelist = [];
   }
 
   onSubmit(form: NgForm) {
@@ -61,6 +65,7 @@ export class IDialogueComponent implements OnInit {
     
       this.dataServices.sendRequestTest(submitForm);
     }
+
 
   launchViewMessages() {
     // this.dataServices.target = targetname;

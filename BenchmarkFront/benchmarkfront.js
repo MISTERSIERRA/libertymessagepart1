@@ -37,7 +37,8 @@ $targetButton.addEventListener("click", function fonction_send(e) {
 	    }
 	};
 	console.log(datatest);
-	request.open('POST', 'http://localhost/libertymessagepart2/index.php', true);
+	// request.open('POST', 'http://localhost/libertymessagepart2/index.php', true);
+	request.open('POST', 'http://localhost/libertymessagepart2/BenchmarkBack/benchmarkback.php', true);
 	request.send(datatest); /* envoi requête */
 	return false;
 });

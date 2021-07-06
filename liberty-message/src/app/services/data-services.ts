@@ -27,36 +27,22 @@ objectToSendJson = {};
 
 objectFromPHP = {};
 
+// urlBackAdress = 'http://localhost/libertymessagepart2/BenchmarkBack/benchmarkback.php';
+
+urlBackAdress = 'http://localhost/libertymessagepart2/index.php';
+
 // entrées
 response = "Liberty Message";
-name = "leto"; // à changer en ""
+name = "";
 status = "nologged";
 token = "none";
-number = "4"; // à changer en "0"
+number = "0";
 // contenant les messages [{messagedate: '', author: '', messagetext: ''}, {}]
-messagelist = [
-    {messagedate: '21/06/21 21:18:24', author: 'leto', messagetext: 'messagemessagemessagemessagemessagemessage'}, 
-    {messagedate: '21/06/21 21:18:24', author: 'leto2', messagetext: 'messagemessagemessagemessagemessagemessage'}, 
-    {messagedate: '21/06/21 21:18:24', author: 'leto', messagetext: 'messagemessagemessagemessagemessagemessage'}, 
-    {messagedate: '21/06/21 21:18:24', author: 'leto', messagetext: 'messagemessagemessagemessagemessagemessage'}, 
-    {messagedate: '21/06/21 21:18:24', author: 'leto', messagetext: 'messagemessagemessagemessagemessagemessage'}, 
-    {messagedate: '21/06/21 21:18:24', author: 'leto', messagetext: 'messagemessagemessagemessagemessagemessage'}, 
-    {messagedate: '21/06/21 21:18:24', author: 'leto', messagetext: 'messagemessagemessagemessagemessagemessage'}, 
-    {messagedate: '21/06/21 21:18:24', author: 'leto', messagetext: 'messagemessagemessagemessagemessagemessage'}, 
-    {messagedate: '21/06/21 21:18:24', author: 'leto', messagetext: 'messagemessagemessagemessagemessagemessage'}, 
-    {messagedate: '21/06/21 21:18:24', author: 'leto', messagetext: 'messagemessagemessagemessagemessagemessage'}
-];
+messagelist = [];
 // contenant les discussions [{target: '', roomname: '', datelastmessage: ''}, {}]
-roomlist = [
-    {target: 'moneo1', roomname: '545335f79d733f980070c3b54e55018f47d04014fe7bde46653a8daa21c5a2b1', datelastmessage: '19/06/21 20:06:35'}, 
-    {target: 'moneo2', roomname: '545335f79d733f980070c3b54e55018f47d04014fe7bde46653a8daa21c5a2b2', datelastmessage: '19/06/21 20:06:35'}, 
-    {target: 'moneo3', roomname: '545335f79d733f980070c3b54e55018f47d04014fe7bde46653a8daa21c5a2b3', datelastmessage: '19/06/21 20:06:35'}, 
-    {target: 'moneo4', roomname: '545335f79d733f980070c3b54e55018f47d04014fe7bde46653a8daa21c5a2b4', datelastmessage: ''}
-];
+roomlist = [];
 
-// prepareDataObject(formData) {
-//     return formData;
-// }
+
 
 resetDataAfterRequest() {
     console.log("reset des variables");
@@ -68,15 +54,55 @@ resetDataAfterRequest() {
     this.objectFromPHP = {};
 }
 
+resetDataWhenLogout() {
+    this.name = "";
+    this.username = "";
+    this.messagelist = [];
+    this.roomlist = [];
+}
+
+addValueFromObject(objectReceived: any) {
+    if(objectReceived['response']){
+        this.response = objectReceived['response'];
+    }
+    if(objectReceived['name']){
+        this.name = objectReceived['name'];
+        this.username = objectReceived['name'];
+    }
+    if(objectReceived['status']){
+        this.status = objectReceived['status'];
+        if(this.status === 'nologged'){
+            this.resetDataWhenLogout();
+        }
+    }
+    if(objectReceived['token']){
+        this.token = objectReceived['token'];
+    }
+    if(objectReceived['number']){
+        this.number = objectReceived['number'];
+    }
+    if(objectReceived['messagelist']){
+        this.messagelist = objectReceived['messagelist'];
+    }
+    if(objectReceived['roomlist']){
+        this.roomlist = objectReceived['roomlist'];
+    }
+}
+
 sendRequestToPHP(formData) {
     this.objectToSendJson = JSON.stringify(formData);
-    this.httpClient.post('mettre lien vers php ici', this.objectToSendJson).subscribe(
+    this.httpClient.post(this.urlBackAdress, this.objectToSendJson).subscribe(
       (response: any) => {
-        this.objectFromPHP = JSON.parse(response);
-        if(this.objectFromPHP['response']){ // si reponse contient bien un élément
-            this.response = this.objectFromPHP['response'];
+        // this.objectFromPHP = JSON.parse(response);
+        
+        if(response && response['response']){ // si reponse contient bien un élément
+            this.objectFromPHP = response;
+            console.log(this.objectFromPHP);
             console.log("Received : ");
             console.log(this.objectFromPHP);
+            this.addValueFromObject(this.objectFromPHP)
+            this.dataReceived$.next(0);
+            this.resetDataAfterRequest();
         }else{
             console.log("erreur de reception");
         }
@@ -140,7 +166,7 @@ sendRequestTest(formData) {
 
     console.log(formData);
     this.objectToSend = formData;
-    // this.sendRequestToPHP(this.objectToSend);
+    this.sendRequestToPHP(this.objectToSend);
 }
 
 }

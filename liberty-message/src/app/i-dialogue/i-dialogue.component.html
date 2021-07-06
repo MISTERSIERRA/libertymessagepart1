@@ -12,8 +12,8 @@
 
 
     <div class="position-fixed fixed-bottom">
-        <form (ngSubmit)="onSubmit(formSendMessage); formSendMessage.reset();" #formSendMessage="ngForm">
-        <div class="btn-dark custom-target-name">{{targetname}}</div>
+        <form (ngSubmit)="onSubmit(formSendMessage); formSendMessage.controls['message'].reset();" #formSendMessage="ngForm">
+        <div class="btn-dark custom-target-name">{{currentTarget}}</div>
         <div class="d-flex bg-white">
             <div class="input-group input-group-sm">
                 <!-- <input type="text" class="form-control border-dark rounded" aria-label="Small" aria-describedby="inputGroup-sizing-sm"> -->

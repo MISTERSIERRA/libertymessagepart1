@@ -33,7 +33,7 @@ const appRoutes: Routes = [
   { path: 'mentions-legales', component: TTermsOfUseComponent }, 
   { path: '', component: BLoginComponent }, 
   { path: 'not-found', component: NNotFoundComponent }, 
-  { path: '**', redirectTo: 'not-found' } /* celle la toujours en dernier */
+  { path: '**', redirectTo: 'login' } /* celle la toujours en dernier */
 ];
 
 

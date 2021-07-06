@@ -12,6 +12,7 @@ export class AHeaderComponent implements OnInit {
   numberEvent: Subscription;
   number = '0';
   status = 'nologged';
+  messageHeader = 'Liberty Message';
 
   constructor(private dataServices: DataServices) {}
 
@@ -21,6 +22,7 @@ export class AHeaderComponent implements OnInit {
       () => {
         this.number = this.dataServices.number;
         this.status = this.dataServices.status;
+        this.messageHeader = this.dataServices.response;
       }, //pour chaque next 
 
       () => {console.log("erreur de subscribe");}, //en cas d'erreur

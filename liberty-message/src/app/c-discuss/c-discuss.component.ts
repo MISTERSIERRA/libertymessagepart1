@@ -17,6 +17,7 @@ export class CDiscussComponent implements OnInit {
   displayAddTarget = false;
 
   constructor(private dataServices: DataServices) {
+    this.launchViewRooms();
     this.roomlist = this.dataServices.roomlist;
   }
 
@@ -47,6 +48,7 @@ export class CDiscussComponent implements OnInit {
   ngOnDestroy() {
     console.log("destroy room");
     clearInterval(this.intervalRoom);
+    this.dataServices.roomlist = [];
   }
 
   activateDeleteButton(roomname) {
