@@ -85,7 +85,10 @@ addValueFromObject(objectReceived: any) {
         this.messagelist = objectReceived['messagelist'];
     }
     if(objectReceived['roomlist']){
-        if(objectReceived['roomlist'][0].target){
+        if(objectReceived['roomlist'][0].roomname == null){
+            this.roomlist = [];
+        }
+        else if(objectReceived['roomlist'][0].roomname != null){
             this.roomlist = objectReceived['roomlist'];
         }
     }
