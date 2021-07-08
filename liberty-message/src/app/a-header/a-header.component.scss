@@ -1,0 +1,113 @@
+// use media queries et position fixed et pour discuss fixed aussi au bottom
+.custom-block-page-header
+{
+    max-width: 1000px;
+}
+.custom-header-logo
+{
+    width: 100%;
+    text-align: center;
+}
+.custom-header-icon
+{
+    padding: 10px;
+    text-align: center;
+}
+.custom-header-icon svg
+{
+    height: 100%;
+    fill: #212529;
+}
+.custom-header-icon:hover svg, 
+.custom-header-icon:focus svg, 
+.custom-header-icon:active svg, 
+.header-menu-three-icons .active svg
+{
+    fill: #00387B;
+}
+.header-menu-three-icons .active
+{
+    border: solid 2px #00387B !important;
+}
+
+.notification-bloc-number
+{
+    position: absolute;
+    top: 0;
+    left: 5px;
+}
+
+@media screen and (max-width: 574px){
+    .custom-block-page-header
+    {
+        min-height: 80px;
+    }
+    .custom-header-logo
+    {
+        height: 30px;
+    }
+    .custom-header-icon
+    {
+        height: 50px;
+    }
+}
+
+@media screen and (min-width: 575px){
+    .custom-block-page-header
+    {
+        min-height: 90px;
+    }
+    .custom-header-logo
+    {
+        height: 35px;
+    }
+    .custom-header-icon
+    {
+        height: 55px;
+    }
+}
+
+@media screen and (min-width: 768px){
+    .custom-block-page-header
+    {
+        min-height: 100px;
+    }
+    .custom-header-logo
+    {
+        height: 40px;
+    }
+    .custom-header-icon
+    {
+        height: 60px;
+    }
+}
+
+@media screen and (min-width: 992px){
+    .custom-block-page-header
+    {
+        min-height: 110px;
+    }
+    .custom-header-logo
+    {
+        height: 40px;
+    }
+    .custom-header-icon
+    {
+        height: 70px;
+    }
+}
+
+@media screen and (min-width: 1200px){
+    .custom-block-page-header
+    {
+        min-height: 120px;
+    }
+    .custom-header-logo
+    {
+        height: 40px;
+    }
+    .custom-header-icon
+    {
+        height: 80px;
+    }
+}

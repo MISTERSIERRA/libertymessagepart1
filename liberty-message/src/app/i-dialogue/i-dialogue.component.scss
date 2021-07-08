@@ -1,0 +1,40 @@
+.full-block-page-dialogue
+{
+    min-height: 200px;
+    overflow-wrap: break-word;
+}
+.full-block-page-dialogue svg
+{
+    height: 40px;
+    fill: #212529;
+}
+.full-block-page-dialogue svg:hover, 
+.full-block-page-dialogue svg:hover, 
+.full-block-page-dialogue svg:active 
+{
+    fill: #00387B;
+}
+.custom-text-area
+{
+    resize: none;
+    height: 40px;
+}
+
+.fixed-bottom .custom-target-name
+{
+    text-align: center;
+}
+// .custom-dialogue-content
+// {
+//     margin-bottom: 70px;
+// }
+.full-block-page-dialogue .position-fixed button
+{
+    border: none;
+}
+
+.custom-dialogue-content .custom-bottom-padding
+{
+    height: 140px;
+    width: 70px;
+}

@@ -2,6 +2,15 @@ body
 {
 	background-color: #373737;
 	/*background-color: #FFFFFF;*/
+	padding-top: 115px;
+}
+.custom-top-title 
+{
+	position: fixed;
+	top: 0;
+	right: 0;
+	background-color: #373737;
+	z-index: 300;
 }
 .button
 {

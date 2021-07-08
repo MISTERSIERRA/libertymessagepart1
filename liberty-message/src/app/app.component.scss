@@ -1,0 +1,45 @@
+.full-block-page-app
+{
+    max-height: 100%;
+    max-width: 1000px;
+}
+
+@media screen and (max-width: 574px){
+    /* 90px */
+    .custom-first-block
+    {
+        margin-top: 88px;
+    }
+}
+
+@media screen and (min-width: 575px){
+    /* 90px */
+    .custom-first-block
+    {
+        margin-top: 98px;
+    }
+}
+
+@media screen and (min-width: 768px){
+    /* 100px */
+    .custom-first-block
+    {
+        margin-top: 108px;
+    }
+}
+
+@media screen and (min-width: 992px){
+    /* 110px */
+    .custom-first-block
+    {
+        margin-top: 118px;
+    }
+}
+
+@media screen and (min-width: 1200px){
+    /* 120px */
+    .custom-first-block
+    {
+        margin-top: 128px;
+    }
+}

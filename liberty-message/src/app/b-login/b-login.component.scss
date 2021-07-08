@@ -1,0 +1,26 @@
+.full-block-page-login
+{
+    min-height: 200px;
+    max-width: 1000px;
+}
+.full-block-page-login .login-menu-1, 
+.full-block-page-login .login-menu-2, 
+.full-block-page-login .login-menu-3, 
+.full-block-page-login-after
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+a:link, 
+a:visited, 
+a:hover, 
+a:active
+{
+    color: #00387B;
+}
+.full-block-page-login-after img
+{
+    height: 200px;
+    width: 200px;
+}

@@ -1,0 +1,22 @@
+.full-block-page-settings
+{
+    min-height: 200px;
+    max-width: 1000px;
+}
+.settings-username-display, 
+.settings-menu-1, 
+.settings-menu-2, 
+.settings-menu-3, 
+.settings-menu-4
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+a:link, 
+a:visited, 
+a:hover, 
+a:active
+{
+    color: #00387B;
+}
