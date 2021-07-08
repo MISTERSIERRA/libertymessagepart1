@@ -35,7 +35,7 @@ urlBackAdress = 'http://localhost/libertymessagepart2/index.php';
 response = "Liberty Message";
 name = "";
 status = "nologged";
-token = "none";
+token = "none"; // none
 number = "0";
 // contenant les messages [{messagedate: '', author: '', messagetext: ''}, {}]
 messagelist = [];
@@ -85,7 +85,9 @@ addValueFromObject(objectReceived: any) {
         this.messagelist = objectReceived['messagelist'];
     }
     if(objectReceived['roomlist']){
-        this.roomlist = objectReceived['roomlist'];
+        if(objectReceived['roomlist'][0].target){
+            this.roomlist = objectReceived['roomlist'];
+        }
     }
 }
 
@@ -97,7 +99,6 @@ sendRequestToPHP(formData) {
         
         if(response && response['response']){ // si reponse contient bien un élément
             this.objectFromPHP = response;
-            console.log(this.objectFromPHP);
             console.log("Received : ");
             console.log(this.objectFromPHP);
             this.addValueFromObject(this.objectFromPHP)

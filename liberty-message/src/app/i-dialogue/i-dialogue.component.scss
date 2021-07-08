@@ -24,11 +24,17 @@
 {
     text-align: center;
 }
-.custom-dialogue-content
-{
-    margin-bottom: 70px;
-}
+// .custom-dialogue-content
+// {
+//     margin-bottom: 70px;
+// }
 .full-block-page-dialogue .position-fixed button
 {
     border: none;
+}
+
+.custom-dialogue-content .custom-bottom-padding
+{
+    height: 140px;
+    width: 70px;
 }

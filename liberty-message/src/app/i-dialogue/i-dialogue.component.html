@@ -1,4 +1,4 @@
-<div class="mx-auto pQx-3 full-block-page-dialogue">
+<div class="mx-auto px-3 full-block-page-dialogue">
 
     <div class="px-3 custom-dialogue-content">
     
@@ -7,11 +7,13 @@
             <div class="mx-2">{{elementMessageObject.messagetext}}</div>
             <div class="mx-2">{{elementMessageObject.messagedate}}</div>
         </div>
+
+        <div class="custom-bottom-padding"></div>
     
     </div>
 
 
-    <div class="position-fixed fixed-bottom">
+    <div class=" fixed-bottom">
         <form (ngSubmit)="onSubmit(formSendMessage); formSendMessage.controls['message'].reset();" #formSendMessage="ngForm">
         <div class="btn-dark custom-target-name">{{currentTarget}}</div>
         <div class="d-flex bg-white">

@@ -12,9 +12,14 @@ export class IDialogueComponent implements OnInit {
 
   dialogueEvent: Subscription;
   intervalMessages: any;
+  intervalFirstScroll: any;
+
   messagelist = [];
+  lastMessagelist = [];
   currentRoomname: any;
   currentTarget: any;
+
+  scrolledWhenInit = false;
 
   constructor(private dataServices: DataServices) {
     this.currentRoomname = this.dataServices.roomname;
@@ -30,6 +35,29 @@ export class IDialogueComponent implements OnInit {
     // this.messagelist = this.dataServices.messagelist;
     // this.targetname = this.dataServices.target;
 
+    // mettre à jour la liste room à chaque retour de requête
+    this.dialogueEvent = this.dataServices.dataReceived$.
+    subscribe(
+      () => {
+        this.lastMessagelist = this.messagelist;
+
+        this.currentRoomname = this.dataServices.roomname;
+        this.currentTarget = this.dataServices.target;
+        this.messagelist = this.dataServices.messagelist;
+        
+        if(this.messagelist.length > this.lastMessagelist.length){
+          this.launchScrollPage();
+        }
+        // else if(window.pageYOffset == 0){
+        //   this.launchScrollPage();
+        // }
+      }, //pour chaque next 
+
+      () => {console.log("erreur de subscribe");}, //en cas d'erreur
+      () => {console.log("changement number");} //en cas de complet
+    );
+
+
     // lancer requête lecture room toutes les 5 sec
     this.intervalMessages = setInterval(
       () => {
@@ -37,18 +65,19 @@ export class IDialogueComponent implements OnInit {
       }
       , 5000);
 
-    // mettre à jour la liste room à chaque retour de requête
-    this.dialogueEvent = this.dataServices.dataReceived$.
-    subscribe(
-      () => {
-        this.currentRoomname = this.dataServices.roomname;
-        this.currentTarget = this.dataServices.target;
-        this.messagelist = this.dataServices.messagelist;
-      }, //pour chaque next 
 
-      () => {console.log("erreur de subscribe");}, //en cas d'erreur
-      () => {console.log("changement number");} //en cas de complet
-    );
+    // lancer requête lecture room toutes les 5 sec
+    this.intervalFirstScroll = setInterval(
+      () => {
+        console.log("Essai de scroll first");
+        if(window.pageYOffset == 0 && this.scrolledWhenInit == false){
+          this.launchScrollPage();
+          this.scrolledWhenInit = true;
+          clearInterval(this.intervalFirstScroll);
+        }
+      }
+      , 500);
+
 
   }
 
@@ -63,7 +92,7 @@ export class IDialogueComponent implements OnInit {
   onSubmit(form: NgForm) {
     let submitForm = form.value;
     
-      this.dataServices.sendRequestTest(submitForm);
+    this.dataServices.sendRequestTest(submitForm);
     }
 
 
@@ -77,6 +106,11 @@ export class IDialogueComponent implements OnInit {
     objectViewMessages['roomname'] = this.currentRoomname;
 
     this.dataServices.sendRequestTest(objectViewMessages);
+  }
+
+  launchScrollPage() {
+    window.scrollTo(0, document.body.scrollHeight);
+    console.log(window.pageYOffset);
   }
 
 }

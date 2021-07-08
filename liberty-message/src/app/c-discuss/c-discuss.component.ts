@@ -51,7 +51,7 @@ export class CDiscussComponent implements OnInit {
     this.dataServices.roomlist = [];
   }
 
-  activateDeleteButton(roomname) {
+  activateDeleteButton(roomname: any) {
     if(this.roomnameToDelete === roomname){
       this.roomnameToDelete = "";
     }
