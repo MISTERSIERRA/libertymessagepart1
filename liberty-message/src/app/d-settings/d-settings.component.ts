@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { DataServices } from '../services/data-services';
 import { Subscription } from 'rxjs';
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
 
 @Component({
   selector: 'app-d-settings',
@@ -14,13 +15,16 @@ export class DSettingsComponent implements OnInit {
   username = "";
   modifyPasswordStatus = 'border-dark';
 
-  constructor(private dataServices: DataServices) {}
+  constructor(private dataServices: DataServices, private router: Router) {}
 
   ngOnInit() {
     this.usernameEvent = this.dataServices.dataReceived$.
     subscribe(
       () => {
         this.username = this.dataServices.name;
+        if(this.dataServices.status === 'nologged'){
+          this.router.navigate(['/login']);
+        }
       }, //pour chaque next 
 
       () => {console.log("erreur de subscribe");}, //en cas d'erreur
@@ -30,7 +34,7 @@ export class DSettingsComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     let submitForm = form.value;
-    // console.log(submitForm);
+    
     if(submitForm['newpassword'] && submitForm['passwordVerify']){
       if(submitForm['newpassword'] === submitForm['passwordVerify']){
         this.modifyPasswordStatus = 'border-dark';

@@ -1,13 +1,14 @@
 import { Observable } from 'rxjs';
 import { Subscription } from 'rxjs';
 import { Subject, BehaviorSubject } from 'rxjs';
+import { AuthService } from './auth.service';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class DataServices {
 
-constructor(private httpClient: HttpClient) {}
+constructor(private authService: AuthService, private httpClient: HttpClient) {}
 
 // observables
 dataReceived$ = new BehaviorSubject<any>(0); // détecte les récéptions de données
@@ -17,7 +18,6 @@ username = "";
 newusername = "";
 password = "";
 newpassword = "";
-// $token = "";
 target = "";
 roomname = "";
 message = "";
@@ -73,6 +73,10 @@ addValueFromObject(objectReceived: any) {
         this.status = objectReceived['status'];
         if(this.status === 'nologged'){
             this.resetDataWhenLogout();
+            this.authService.isAuth = false;
+        }
+        else if(this.status === 'logged'){
+            this.authService.isAuth = true;
         }
     }
     if(objectReceived['token']){
@@ -98,7 +102,6 @@ sendRequestToPHP(formData) {
     this.objectToSendJson = JSON.stringify(formData);
     this.httpClient.post(this.urlBackAdress, this.objectToSendJson).subscribe(
       (response: any) => {
-        // this.objectFromPHP = JSON.parse(response);
         
         if(response && response['response']){ // si reponse contient bien un élément
             this.objectFromPHP = response;

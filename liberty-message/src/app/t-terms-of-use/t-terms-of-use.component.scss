@@ -3,6 +3,15 @@
     max-width: 1000px;
     display: flex;
     justify-content: center;
-    align-items: center;
+}
+.full-block-page-terms .custom-terms-title
+{
+    font-size: 1.1em;
+    font-weight: bold;
     text-align: center;
+}
+.full-block-page-terms .custom-terms-content
+{
+    align-items: center;
+    text-align: justify;
 }

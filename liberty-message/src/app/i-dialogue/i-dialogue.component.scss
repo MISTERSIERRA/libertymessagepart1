@@ -14,20 +14,29 @@
 {
     fill: #00387B;
 }
+.full-block-page-dialogue form textarea
+{
+    height: 42px;
+}
+.full-block-page-dialogue form button
+{
+    border: 0px solid white;
+}
 .custom-text-area
 {
     resize: none;
     height: 40px;
+}
+.custom-small-font
+{
+    font-size: 0.75em;
 }
 
 .fixed-bottom .custom-target-name
 {
     text-align: center;
 }
-// .custom-dialogue-content
-// {
-//     margin-bottom: 70px;
-// }
+
 .full-block-page-dialogue .position-fixed button
 {
     border: none;

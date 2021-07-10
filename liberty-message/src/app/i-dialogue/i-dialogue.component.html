@@ -2,10 +2,10 @@
 
     <div class="px-3 custom-dialogue-content">
     
-        <div class="my-1 border border-dark rounded" *ngFor="let elementMessageObject of messagelist">
-            <div class="mx-2">{{elementMessageObject.author}} :</div>
-            <div class="mx-2">{{elementMessageObject.messagetext}}</div>
-            <div class="mx-2">{{elementMessageObject.messagedate}}</div>
+        <div class="my-1 border border-2 border-success rounded" *ngFor="let elementMessageObject of messagelist">
+            <div class="mx-2 text-success fw-bold">{{elementMessageObject.author}} :</div>
+            <div class="mx-2 text-dark">{{elementMessageObject.messagetext}}</div>
+            <div class="mx-2 text-secondary fst-italic custom-small-font">{{elementMessageObject.messagedate}}</div>
         </div>
 
         <div class="custom-bottom-padding"></div>

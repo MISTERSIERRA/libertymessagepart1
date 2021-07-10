@@ -1,7 +1,7 @@
 <div class="full-block-page-login mx-auto px-2 py-2">
     <div class="mx-5">
     
-    <form *ngIf="true" (ngSubmit)="onSubmit(formCreateAccount); formCreateAccount.reset();" #formCreateAccount="ngForm">
+    <form *ngIf="loginStatus === 'nologged'" (ngSubmit)="onSubmit(formCreateAccount); formCreateAccount.controls['username'].reset(); formCreateAccount.controls['password'].reset(); formCreateAccount.controls['passwordVerify'].reset();" #formCreateAccount="ngForm">
         <div class="login-menu-1">
             <button class="btn btn-dark my-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCreateAccount1" aria-expanded="false" aria-controls="collapseCreateAccount1">
                 Nouveau compte
@@ -29,14 +29,14 @@
         </div>
     </form>
 
-    <form *ngIf="true" (ngSubmit)="onSubmit(formConnectUser); formConnectUser.reset();" #formConnectUser="ngForm">
+    <form *ngIf="loginStatus === 'nologged'" (ngSubmit)="onSubmit(formConnectUser); formConnectUser.controls['username'].reset(); formConnectUser.controls['password'].reset();" #formConnectUser="ngForm">
         <div class="login-menu-2">
             <button class="btn btn-dark my-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseConnectUser1" aria-expanded="false" aria-controls="collapseConnectUser1">
                 Se connecter
             </button>
         </div>
 
-        <div *ngIf="true" class="collapse card card-body" id="collapseConnectUser1">
+        <div class="collapse card card-body" id="collapseConnectUser1">
             <div class="form-group">
                 <label for="ConnectUser1">Identifiant</label>
                 <input type="text" name="action" [ngModel]="'connectUser'" hidden>
@@ -50,7 +50,7 @@
         </div>
     </form>
 
-        <div *ngIf="true" class="login-menu-3">
+        <div *ngIf="loginStatus === 'logged'" class="login-menu-3">
             <button class="btn btn-danger my-2" type="button" (click)="launchLogOutUser()">
                 Se deconnecter
             </button>

@@ -2,7 +2,7 @@
    
     <div class="px-3">
     
-        <div class="d-flex my-1 border border-dark rounded" *ngFor="let elementRoomObject of roomlist">
+        <div class="d-flex my-1 border border-2 border-primary rounded" *ngFor="let elementRoomObject of roomlist">
             <div class="custom-discuss-icon-1 py-1 px-1 col-2">
                 <a class="btn-light bg-white custom-discuss-link" 
                 (click)="prepareViewMessages(elementRoomObject.roomname, elementRoomObject.target)" routerLink="/dialogue">
@@ -12,8 +12,8 @@
             <div class="col-9">
                 <a class="btn-light bg-white custom-discuss-link" routerLink="/dialogue" 
                 (click)="prepareViewMessages(elementRoomObject.roomname, elementRoomObject.target)">
-                    <div class="mx-2 custom-discuss-content">{{elementRoomObject.target}}</div>
-                    <div class="mx-2">{{elementRoomObject.datelastmessage}}</div>
+                    <div class="mx-2 custom-discuss-content text-primary fw-bold">{{elementRoomObject.target}}</div>
+                    <div class="mx-2 text-secondary fst-italic custom-small-font">{{elementRoomObject.datelastmessage}}</div>
                 </a>
                 <div *ngIf="roomnameToDelete === elementRoomObject.roomname" class="btn btn-danger" type="button" (click)="launchDeletRoom(elementRoomObject.roomname)">
                     Supprimer
