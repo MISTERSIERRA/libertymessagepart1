@@ -22,18 +22,17 @@ import { TTermsOfUseComponent } from './t-terms-of-use/t-terms-of-use.component'
 
 
 const appRoutes: Routes = [
-  //{ path: 'appareil', canActivate: [AuthGuard], component: AppareilViewComponent }, 
   { path: 'login', component: BLoginComponent }, 
-  // { path: 'discuss', canActivate: [AuthGuard], component: CDiscussComponent }, 
-  // { path: 'dialogue', canActivate: [AuthGuard], component: IDialogueComponent }, 
-  // { path: 'settings', canActivate: [AuthGuard], component: DSettingsComponent }, 
-  { path: 'discuss', component: CDiscussComponent }, 
-  { path: 'dialogue', component: IDialogueComponent }, 
-  { path: 'settings', component: DSettingsComponent }, 
+  { path: 'discuss', canActivate: [AuthGuard], component: CDiscussComponent }, 
+  { path: 'dialogue', canActivate: [AuthGuard], component: IDialogueComponent }, 
+  { path: 'settings', canActivate: [AuthGuard], component: DSettingsComponent }, 
+  // { path: 'discuss', component: CDiscussComponent }, 
+  // { path: 'dialogue', component: IDialogueComponent }, 
+  // { path: 'settings', component: DSettingsComponent }, 
   { path: 'mentions-legales', component: TTermsOfUseComponent }, 
   { path: '', component: BLoginComponent }, 
   { path: 'not-found', component: NNotFoundComponent }, 
-  { path: '**', redirectTo: 'login' } /* celle la toujours en dernier */
+  { path: '**', redirectTo: 'not-found' } /* celle la toujours en dernier */
 ];
 
 

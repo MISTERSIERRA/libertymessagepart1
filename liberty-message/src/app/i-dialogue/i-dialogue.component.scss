@@ -14,6 +14,14 @@
 {
     fill: #00387B;
 }
+.full-block-page-dialogue form textarea
+{
+    height: 42px;
+}
+.full-block-page-dialogue form button
+{
+    border: 0px solid white;
+}
 .custom-text-area
 {
     resize: none;
@@ -28,10 +36,7 @@
 {
     text-align: center;
 }
-// .custom-dialogue-content
-// {
-//     margin-bottom: 70px;
-// }
+
 .full-block-page-dialogue .position-fixed button
 {
     border: none;

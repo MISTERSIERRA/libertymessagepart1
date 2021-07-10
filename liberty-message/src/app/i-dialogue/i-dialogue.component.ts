@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { DataServices } from '../services/data-services';
 import { Subscription } from 'rxjs';
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
 
 @Component({
   selector: 'app-i-dialogue',
@@ -21,7 +22,7 @@ export class IDialogueComponent implements OnInit {
 
   scrolledWhenInit = false;
 
-  constructor(private dataServices: DataServices) {
+  constructor(private dataServices: DataServices, private router: Router) {
     this.currentRoomname = this.dataServices.roomname;
     this.currentTarget = this.dataServices.target;
     this.messagelist = this.dataServices.messagelist;
@@ -48,9 +49,11 @@ export class IDialogueComponent implements OnInit {
         if(this.messagelist.length > this.lastMessagelist.length){
           this.launchScrollPage();
         }
-        // else if(window.pageYOffset == 0){
-        //   this.launchScrollPage();
-        // }
+
+        if(this.dataServices.status === 'nologged'){
+          this.router.navigate(['/login']);
+        }
+        
       }, //pour chaque next 
 
       () => {console.log("erreur de subscribe");}, //en cas d'erreur

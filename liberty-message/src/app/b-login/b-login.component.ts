@@ -12,11 +12,25 @@ import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from
 })
 export class BLoginComponent implements OnInit {
 
+  loginEvent: Subscription;
+
+  loginStatus = 'nologged';
+
   verifyPasswordStatus = 'border-dark';
 
   constructor(private dataServices: DataServices) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.loginEvent = this.dataServices.dataReceived$.
+    subscribe(
+      () => {
+        this.loginStatus = this.dataServices.status;
+      }, //pour chaque next 
+
+      () => {console.log("erreur de subscribe");}, //en cas d'erreur
+      () => {console.log("changement number");} //en cas de complet
+    );
+  }
 
   onSubmit(form: NgForm) {
     let submitForm = form.value;
