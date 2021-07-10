@@ -28,7 +28,8 @@ objectToSendJson = {};
 objectFromPHP = {};
 
 // urlBackAdress = 'http://localhost/libertymessagepart2/BenchmarkBack/benchmarkback.php';
-
+// urlBackAdress = 'https://lesshadoks.000webhostapp.com/TEST3/benchmarkback.php';
+// urlBackAdress = 'https://lesshadoks.000webhostapp.com/liberty-message/';
 urlBackAdress = 'http://localhost/libertymessagepart2/index.php';
 
 // entrées
