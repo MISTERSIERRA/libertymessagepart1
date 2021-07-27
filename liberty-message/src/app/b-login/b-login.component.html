@@ -1,7 +1,7 @@
 <div class="full-block-page-login mx-auto px-2 py-2">
     <div class="mx-5">
     
-    <form *ngIf="loginStatus === 'nologged'" (ngSubmit)="onSubmit(formCreateAccount); formCreateAccount.controls['username'].reset(); formCreateAccount.controls['password'].reset(); formCreateAccount.controls['passwordVerify'].reset();" #formCreateAccount="ngForm">
+    <form *ngIf="loginStatus === 'nologged'" (ngSubmit)="onSubmit(formCreateAccount);" #formCreateAccount="ngForm">
         <div class="login-menu-1">
             <button class="btn btn-dark my-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCreateAccount1" aria-expanded="false" aria-controls="collapseCreateAccount1">
                 Nouveau compte
@@ -12,12 +12,13 @@
             <div class="form-group">
                 <label for="CreateAccount1">Identifiant</label>
                 <input type="text" name="action" [ngModel]="'createAccount'" hidden>
-                <input type="text" class="form-control border-dark" id="CreateAccount1" placeholder="Identifiant" name="username" ngModel required>
+                <input type="text" class="form-control border-dark" id="CreateAccount1" placeholder="Identifiant (50 carac. max)" maxlength="50" pattern=".{1,50}" name="username" ngModel required>
             </div>
             <div class="form-group">
-                <label for="CreateAccountPassword1">Password</label>
-                <input type="password" class="form-control" [ngClass]="{'border-dark': verifyPasswordStatus === 'border-dark', 'border-danger border-2': verifyPasswordStatus === 'border-danger'}" id="CreateAccountPassword1" placeholder="Mot de passe" name="password" ngModel required>
-                <input type="password" class="form-control my-1" [ngClass]="{'border-dark': verifyPasswordStatus === 'border-dark', 'border-danger border-2': verifyPasswordStatus === 'border-danger'}" id="CreateAccountPassword2" placeholder="Vérification mot de passe" name="passwordVerify" ngModel required>
+                <label for="CreateAccountPassword1">Mot de passe</label>
+                <input type="password" class="form-control" [ngClass]="{'border-dark': verifyPasswordStatus === 'border-dark', 'border-danger border-2': verifyPasswordStatus === 'border-danger'}" id="CreateAccountPassword1" placeholder="Mot de passe (20 carac. max)" maxlength="20" pattern=".{1,20}" name="password" ngModel required>
+                <input type="password" class="form-control my-1" [ngClass]="{'border-dark': verifyPasswordStatus === 'border-dark', 'border-danger border-2': verifyPasswordStatus === 'border-danger'}" id="CreateAccountPassword2" placeholder="Vérification (20 carac. max)" maxlength="20" pattern=".{1,20}" name="passwordVerify" ngModel required>
+                <label *ngIf="verifyPasswordStatus === 'border-danger'" class="text-danger" for="CreateAccountPassword2">Mots de passe non identiques</label>
             </div>
             <div class="form-check">
                 <input type="checkbox" class="form-check-input border-dark" id="CreateAccountCheck1" name="CreateAccountCheck1" ngModel required>
@@ -29,7 +30,7 @@
         </div>
     </form>
 
-    <form *ngIf="loginStatus === 'nologged'" (ngSubmit)="onSubmit(formConnectUser); formConnectUser.controls['username'].reset(); formConnectUser.controls['password'].reset();" #formConnectUser="ngForm">
+    <form *ngIf="loginStatus === 'nologged'" (ngSubmit)="onSubmit(formConnectUser);" #formConnectUser="ngForm">
         <div class="login-menu-2">
             <button class="btn btn-dark my-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseConnectUser1" aria-expanded="false" aria-controls="collapseConnectUser1">
                 Se connecter
@@ -40,11 +41,11 @@
             <div class="form-group">
                 <label for="ConnectUser1">Identifiant</label>
                 <input type="text" name="action" [ngModel]="'connectUser'" hidden>
-                <input type="text" class="form-control border-dark" id="ConnectUser1" placeholder="Identifiant" name="username" ngModel required>
+                <input type="text" class="form-control border-dark" id="ConnectUser1" placeholder="Identifiant" maxlength="50" pattern=".{1,50}" name="username" ngModel required>
             </div>
             <div class="form-group">
-                <label for="ConnectUserPassword1">Password</label>
-                <input type="password" class="form-control mb-1 border-dark" id="ConnectUserPassword1" placeholder="Mot de passe" name="password" ngModel required>
+                <label for="ConnectUserPassword1">Mot de passe</label>
+                <input type="password" class="form-control mb-1 border-dark" id="ConnectUserPassword1" placeholder="Mot de passe" maxlength="20" pattern=".{1,20}" name="password" ngModel required>
             </div>
             <button type="submit" [disabled]="formConnectUser.invalid" class="btn btn-dark">Se connecter</button>
         </div>

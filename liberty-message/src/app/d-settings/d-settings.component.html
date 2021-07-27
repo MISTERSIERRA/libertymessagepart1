@@ -5,7 +5,7 @@
             {{username}}
         </div>
 
-        <form (ngSubmit)="onSubmit(formModifyUserName); formModifyUserName.controls['newusername'].reset(); formModifyUserName.controls['password'].reset();" #formModifyUserName="ngForm">
+        <form (ngSubmit)="onSubmit(formModifyUserName);" #formModifyUserName="ngForm">
         <div class="settings-menu-1">
             <button class="btn btn-dark my-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseModifyUserName1" aria-expanded="false" aria-controls="collapseModifyUserName1">
                 Modifier identifiant
@@ -16,17 +16,17 @@
             <div class="form-group">
                 <label for="ModifyUserName1">Nouvel identifiant</label>
                 <input type="text" name="action" [ngModel]="'modifyUserName'" hidden>
-                <input type="text" class="form-control border-dark" id="ModifyUserName1" placeholder="Identifiant" name="newusername" ngModel required>
+                <input type="text" class="form-control border-dark" id="ModifyUserName1" placeholder="Identifiant (50 carac. max)" maxlength="50" pattern=".{1,50}" name="newusername" ngModel required>
             </div>
             <div class="form-group">
-                <label for="ModifyUserNamePassword1">Password</label>
-                <input type="password" class="form-control border-dark my-1" id="ModifyUserNamePassword1" placeholder="Mot de passe" name="password" ngModel required>
+                <label for="ModifyUserNamePassword1">Mot de passe</label>
+                <input type="password" class="form-control border-dark my-1" id="ModifyUserNamePassword1" placeholder="Mot de passe" maxlength="20" pattern=".{1,20}" name="password" ngModel required>
             </div>
             <button type="submit" [disabled]="formModifyUserName.invalid" class="btn btn-dark">Valider</button>
         </div>
         </form>
 
-        <form (ngSubmit)="onSubmit(formModifyPassword); formModifyPassword.controls['password'].reset(); formModifyPassword.controls['newpassword'].reset(); formModifyPassword.controls['passwordVerify'].reset();" #formModifyPassword="ngForm">
+        <form (ngSubmit)="onSubmit(formModifyPassword);" #formModifyPassword="ngForm">
         <div class="settings-menu-2">
             <button class="btn btn-dark my-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseModifyPassword1" aria-expanded="false" aria-controls="collapseModifyPassword1">
                 Modifier mot de passe
@@ -35,17 +35,18 @@
 
         <div class="collapse card card-body" id="collapseModifyPassword1">
             <div class="form-group">
-                <label for="ModifyPasswordNew1">Password</label>
+                <label for="ModifyPasswordNew1">Mot de passe</label>
                 <input type="text" name="action" [ngModel]="'modifyPassword'" hidden>
-                <input type="password" class="form-control border-dark" id="ModifyPasswordOld1" placeholder="Mot de passe" name="password" ngModel required>
-                <input type="password" class="form-control my-1" [ngClass]="{'border-dark': modifyPasswordStatus === 'border-dark', 'border-danger border-2': modifyPasswordStatus === 'border-danger'}" id="ModifyPasswordNew1" placeholder="Nouveau mot de passe" name="newpassword" ngModel required>
-                <input type="password" class="form-control my-1" [ngClass]="{'border-dark': modifyPasswordStatus === 'border-dark', 'border-danger border-2': modifyPasswordStatus === 'border-danger'}" id="ModifyPasswordNew2" placeholder="Vérification" name="passwordVerify" ngModel required>
+                <input type="password" class="form-control border-dark" id="ModifyPasswordOld1" placeholder="Mot de passe" maxlength="20" pattern=".{1,20}" name="password" ngModel required>
+                <input type="password" class="form-control my-1" [ngClass]="{'border-dark': modifyPasswordStatus === 'border-dark', 'border-danger border-2': modifyPasswordStatus === 'border-danger'}" id="ModifyPasswordNew1" placeholder="Nouveau (20 carac. max)" maxlength="20" pattern=".{1,20}" name="newpassword" ngModel required>
+                <input type="password" class="form-control my-1" [ngClass]="{'border-dark': modifyPasswordStatus === 'border-dark', 'border-danger border-2': modifyPasswordStatus === 'border-danger'}" id="ModifyPasswordNew2" placeholder="Vérification (20 carac. max)" maxlength="20" pattern=".{1,20}" name="passwordVerify" ngModel required>
+                <label *ngIf="modifyPasswordStatus === 'border-danger'" class="text-danger" for="ModifyPasswordNew2">Mots de passe non identiques</label>
             </div>
             <button type="submit" [disabled]="formModifyPassword.invalid" class="btn btn-dark">Valider</button>
         </div>
         </form>
 
-        <form (ngSubmit)="onSubmit(formDeleteAccount); formDeleteAccount.controls['password'].reset();" #formDeleteAccount="ngForm">
+        <form (ngSubmit)="onSubmit(formDeleteAccount);" #formDeleteAccount="ngForm">
         <div class="settings-menu-3">
             <button class="btn btn-dark my-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDeleteAccount1" aria-expanded="false" aria-controls="collapseDeleteAccount1">
                 Supprimer compte
@@ -54,9 +55,9 @@
 
         <div class="collapse card card-body" id="collapseDeleteAccount1">
             <div class="form-group">
-                <label for="DeleteAccountPassword1">Password</label>
+                <label for="DeleteAccountPassword1">Mot de passe</label>
                 <input type="text" name="action" [ngModel]="'deleteAccount'" hidden>
-                <input type="password" class="form-control border-dark my-1" id="DeleteAccountPassword1" placeholder="Mot de passe" name="password" ngModel required>
+                <input type="password" class="form-control border-dark my-1" id="DeleteAccountPassword1" placeholder="Mot de passe" maxlength="20" pattern=".{1,20}" name="password" ngModel required>
             </div>
             <button type="submit" [disabled]="formDeleteAccount.invalid" class="btn btn-dark">Valider</button>
         </div>

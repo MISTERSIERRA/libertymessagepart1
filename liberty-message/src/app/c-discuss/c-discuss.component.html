@@ -33,7 +33,7 @@
         <form *ngIf="displayAddTarget" (ngSubmit)="onSubmit(formCreateRoom); formCreateRoom.controls['target'].reset();" #formCreateRoom="ngForm">
         <div class="form-group card card-body">
             <input type="text" name="action" [ngModel]="'createRoom'" hidden>
-            <input type="text" class="form-control border-dark my-1" id="CreateAccount1" placeholder="Nouveau contact" name="target" ngModel required>
+            <input type="text" class="form-control border-dark my-1" id="CreateAccount1" placeholder="Nouveau contact" maxlength="50" pattern=".{1,50}" name="target" ngModel required>
             <button type="submit" [disabled]="formCreateRoom.invalid" class="btn btn-dark">Ajouter</button>
         </div>
         </form>

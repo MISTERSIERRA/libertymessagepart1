@@ -36,7 +36,7 @@ urlBackAdress = 'http://localhost/libertymessagepart2/index.php';
 response = "Liberty Message";
 name = "";
 status = "nologged";
-token = "none"; // none
+token = "none";
 number = "0";
 // contenant les messages [{messagedate: '', author: '', messagetext: ''}, {}]
 messagelist = [];
