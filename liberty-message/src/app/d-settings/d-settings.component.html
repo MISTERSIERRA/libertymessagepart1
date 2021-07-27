@@ -16,11 +16,11 @@
             <div class="form-group">
                 <label for="ModifyUserName1">Nouvel identifiant</label>
                 <input type="text" name="action" [ngModel]="'modifyUserName'" hidden>
-                <input type="text" class="form-control border-dark" id="ModifyUserName1" placeholder="Identifiant (50 carac. max)" pattern=".{1,50}" name="newusername" ngModel required>
+                <input type="text" class="form-control border-dark" id="ModifyUserName1" placeholder="Identifiant (50 carac. max)" maxlength="50" pattern=".{1,50}" name="newusername" ngModel required>
             </div>
             <div class="form-group">
                 <label for="ModifyUserNamePassword1">Mot de passe</label>
-                <input type="password" class="form-control border-dark my-1" id="ModifyUserNamePassword1" placeholder="Mot de passe" pattern=".{1,20}" name="password" ngModel required>
+                <input type="password" class="form-control border-dark my-1" id="ModifyUserNamePassword1" placeholder="Mot de passe" maxlength="20" pattern=".{1,20}" name="password" ngModel required>
             </div>
             <button type="submit" [disabled]="formModifyUserName.invalid" class="btn btn-dark">Valider</button>
         </div>
@@ -37,9 +37,9 @@
             <div class="form-group">
                 <label for="ModifyPasswordNew1">Mot de passe</label>
                 <input type="text" name="action" [ngModel]="'modifyPassword'" hidden>
-                <input type="password" class="form-control border-dark" id="ModifyPasswordOld1" placeholder="Mot de passe" pattern=".{1,20}" name="password" ngModel required>
-                <input type="password" class="form-control my-1" [ngClass]="{'border-dark': modifyPasswordStatus === 'border-dark', 'border-danger border-2': modifyPasswordStatus === 'border-danger'}" id="ModifyPasswordNew1" placeholder="Nouveau (20 carac. max)" pattern=".{1,20}" name="newpassword" ngModel required>
-                <input type="password" class="form-control my-1" [ngClass]="{'border-dark': modifyPasswordStatus === 'border-dark', 'border-danger border-2': modifyPasswordStatus === 'border-danger'}" id="ModifyPasswordNew2" placeholder="Vérification (20 carac. max)" pattern=".{1,20}" name="passwordVerify" ngModel required>
+                <input type="password" class="form-control border-dark" id="ModifyPasswordOld1" placeholder="Mot de passe" maxlength="20" pattern=".{1,20}" name="password" ngModel required>
+                <input type="password" class="form-control my-1" [ngClass]="{'border-dark': modifyPasswordStatus === 'border-dark', 'border-danger border-2': modifyPasswordStatus === 'border-danger'}" id="ModifyPasswordNew1" placeholder="Nouveau (20 carac. max)" maxlength="20" pattern=".{1,20}" name="newpassword" ngModel required>
+                <input type="password" class="form-control my-1" [ngClass]="{'border-dark': modifyPasswordStatus === 'border-dark', 'border-danger border-2': modifyPasswordStatus === 'border-danger'}" id="ModifyPasswordNew2" placeholder="Vérification (20 carac. max)" maxlength="20" pattern=".{1,20}" name="passwordVerify" ngModel required>
                 <label *ngIf="modifyPasswordStatus === 'border-danger'" class="text-danger" for="ModifyPasswordNew2">Mots de passe non identiques</label>
             </div>
             <button type="submit" [disabled]="formModifyPassword.invalid" class="btn btn-dark">Valider</button>
@@ -57,7 +57,7 @@
             <div class="form-group">
                 <label for="DeleteAccountPassword1">Mot de passe</label>
                 <input type="text" name="action" [ngModel]="'deleteAccount'" hidden>
-                <input type="password" class="form-control border-dark my-1" id="DeleteAccountPassword1" placeholder="Mot de passe" pattern=".{1,20}" name="password" ngModel required>
+                <input type="password" class="form-control border-dark my-1" id="DeleteAccountPassword1" placeholder="Mot de passe" maxlength="20" pattern=".{1,20}" name="password" ngModel required>
             </div>
             <button type="submit" [disabled]="formDeleteAccount.invalid" class="btn btn-dark">Valider</button>
         </div>
