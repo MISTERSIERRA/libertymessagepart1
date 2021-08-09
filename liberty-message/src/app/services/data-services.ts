@@ -1,6 +1,6 @@
-import { Observable } from 'rxjs';
-import { Subscription } from 'rxjs';
-import { Subject, BehaviorSubject } from 'rxjs';
+
+
+import { BehaviorSubject } from 'rxjs';
 import { AuthService } from './auth.service';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -10,8 +10,10 @@ export class DataServices {
 
 constructor(private authService: AuthService, private httpClient: HttpClient) {}
 
-// observables
-dataReceived$ = new BehaviorSubject<any>(0); // détecte les récéptions de données
+
+
+// détecte les récéptions de données
+dataReceived$ = new BehaviorSubject<any>(0); 
 
 // sorties
 username = "";
@@ -70,6 +72,7 @@ addValueFromObject(objectReceived: any) {
         this.name = objectReceived['name'];
         this.username = objectReceived['name'];
     }
+
     if(objectReceived['status']){
         this.status = objectReceived['status'];
         if(this.status === 'nologged'){
@@ -80,6 +83,7 @@ addValueFromObject(objectReceived: any) {
             this.authService.isAuth = true;
         }
     }
+
     if(objectReceived['token']){
         this.token = objectReceived['token'];
     }
@@ -102,21 +106,21 @@ addValueFromObject(objectReceived: any) {
 sendRequestToPHP(formData) {
     this.objectToSendJson = JSON.stringify(formData);
     this.httpClient.post(this.urlBackAdress, this.objectToSendJson).subscribe(
-      (response: any) => {
-        
-        if(response && response['response']){ // si reponse contient bien un élément
-            this.objectFromPHP = response;
-            console.log("Received : ");
-            console.log(this.objectFromPHP);
-            this.addValueFromObject(this.objectFromPHP)
-            this.dataReceived$.next(0);
-            this.resetDataAfterRequest();
-        }else{
-            console.log("erreur de reception");
-        }
-      },    (error) => {
-                console.log(error);
+        (response: any) => {
+            if(response && response['response']){ 
+                this.objectFromPHP = response;
+                console.log("Received : ");
+                console.log(this.objectFromPHP);
+                this.addValueFromObject(this.objectFromPHP)
+                this.dataReceived$.next(0); // méthode next()
+                this.resetDataAfterRequest();
+            }else{
+                console.log("erreur de reception");
             }
+        },   
+        (error) => {
+                console.log(error);
+        }
     );
 }
 

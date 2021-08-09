@@ -19,6 +19,7 @@ import { NNotFoundComponent } from './n-not-found/n-not-found.component';
 import { MContainerComponent } from './m-container/m-container.component';
 import { IDialogueComponent } from './i-dialogue/i-dialogue.component';
 import { TTermsOfUseComponent } from './t-terms-of-use/t-terms-of-use.component';
+import { NewElementComponent } from './new-element/new-element.component';
 
 
 const appRoutes: Routes = [
@@ -26,13 +27,10 @@ const appRoutes: Routes = [
   { path: 'discuss', canActivate: [AuthGuard], component: CDiscussComponent }, 
   { path: 'dialogue', canActivate: [AuthGuard], component: IDialogueComponent }, 
   { path: 'settings', canActivate: [AuthGuard], component: DSettingsComponent }, 
-  // { path: 'discuss', component: CDiscussComponent }, 
-  // { path: 'dialogue', component: IDialogueComponent }, 
-  // { path: 'settings', component: DSettingsComponent }, 
   { path: 'mentions-legales', component: TTermsOfUseComponent }, 
   { path: '', component: BLoginComponent }, 
   { path: 'not-found', component: NNotFoundComponent }, 
-  { path: '**', redirectTo: 'not-found' } /* celle la toujours en dernier */
+  { path: '**', redirectTo: 'not-found' } 
 ];
 
 
@@ -46,7 +44,8 @@ const appRoutes: Routes = [
     NNotFoundComponent,
     MContainerComponent,
     IDialogueComponent,
-    TTermsOfUseComponent
+    TTermsOfUseComponent,
+    NewElementComponent
   ],
   imports: [
     BrowserModule,

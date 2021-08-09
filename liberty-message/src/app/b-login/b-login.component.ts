@@ -20,13 +20,15 @@ export class BLoginComponent implements OnInit {
 
   constructor(private dataServices: DataServices) {}
 
+  
+
   ngOnInit() {
     this.loginEvent = this.dataServices.dataReceived$.
     subscribe(
       () => {
         this.loginStatus = this.dataServices.status;
-      }, //pour chaque next 
-
+      },  // chaque next
+  
       () => {console.log("erreur de subscribe");}, //en cas d'erreur
       () => {console.log("changement number");} //en cas de complet
     );
@@ -58,3 +60,10 @@ export class BLoginComponent implements OnInit {
   }
 
 }
+
+
+
+
+
+
+
