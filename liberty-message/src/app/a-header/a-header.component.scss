@@ -111,3 +111,17 @@
         height: 80px;
     }
 }
+
+
+.custom-loader-picture
+{
+    position: absolute;
+    height: 400%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: url(./../../assets/all-content/pictures/loader-picture.gif);
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 500;
+}

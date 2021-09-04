@@ -14,9 +14,14 @@ export class AHeaderComponent implements OnInit {
   status = 'nologged';
   messageHeader = 'Liberty Message';
 
+  loaderEvent: Subscription;
+  
+  loaderPicture = 'off';
+
   constructor(private dataServices: DataServices) {}
 
   ngOnInit() {
+
     this.numberEvent = this.dataServices.dataReceived$.
     subscribe(
       () => {
@@ -28,6 +33,17 @@ export class AHeaderComponent implements OnInit {
       () => {console.log("erreur de subscribe");}, //en cas d'erreur
       () => {console.log("changement number");} //en cas de complet
     );
+
+    this.loaderEvent = this.dataServices.startLoaderPicture$.
+    subscribe(
+      () => {
+        this.loaderPicture = this.dataServices.loaderPicture;
+      },  // chaque next
+  
+      () => {console.log("erreur de subscribe");}, //en cas d'erreur
+      () => {console.log("changement loader");} //en cas de complet
+    );
+
   }
 
 }
