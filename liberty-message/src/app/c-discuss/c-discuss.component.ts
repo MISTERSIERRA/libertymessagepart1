@@ -23,7 +23,7 @@ export class CDiscussComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log("init room");
+    // console.log("init room");
     // this.launchViewRooms();
 
     // lancer requête lecture room toutes les 5 sec
@@ -50,7 +50,7 @@ export class CDiscussComponent implements OnInit {
   }
 
   ngOnDestroy() {
-    console.log("destroy room");
+    // console.log("destroy room");
     clearInterval(this.intervalRoom);
     this.dataServices.roomlist = [];
   }
@@ -74,7 +74,7 @@ export class CDiscussComponent implements OnInit {
   }
 
   prepareViewMessages(roomname, targetname) {
-    console.log("prepare messages");
+    // console.log("prepare messages");
     this.dataServices.roomname = roomname;
     this.dataServices.target = targetname;
   }

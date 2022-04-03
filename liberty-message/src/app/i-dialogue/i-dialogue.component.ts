@@ -32,7 +32,7 @@ export class IDialogueComponent implements OnInit {
   targetname = "destinataire";
 
   ngOnInit() {
-    console.log("init messages");
+    // console.log("init messages");
     // this.messagelist = this.dataServices.messagelist;
     // this.targetname = this.dataServices.target;
 
@@ -72,7 +72,7 @@ export class IDialogueComponent implements OnInit {
     // lancer requête lecture room toutes les 5 sec
     this.intervalFirstScroll = setInterval(
       () => {
-        console.log("Essai de scroll first");
+        // console.log("Essai de scroll first");
         if(window.pageYOffset == 0 && this.scrolledWhenInit == false){
           this.launchScrollPage();
           this.scrolledWhenInit = true;
@@ -85,7 +85,7 @@ export class IDialogueComponent implements OnInit {
   }
 
   ngOnDestroy() {
-    console.log("destroy messages");
+    // console.log("destroy messages");
     clearInterval(this.intervalMessages);
     this.dataServices.roomname = "";
     this.dataServices.target = "";

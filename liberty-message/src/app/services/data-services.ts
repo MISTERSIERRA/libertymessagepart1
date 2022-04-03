@@ -60,7 +60,7 @@ desactivateLoaderPicture() {
 }
 
 resetDataAfterRequest() {
-    console.log("reset des variables");
+    // console.log("reset des variables");
     this.newusername = "";
     this.password = "";
     this.newpassword = "";
@@ -121,8 +121,8 @@ sendRequestToPHP(formData) {
         (response: any) => {
             if(response && response['response']){ 
                 this.objectFromPHP = response;
-                console.log("Received : ");
-                console.log(this.objectFromPHP);
+                // console.log("Received : ");
+                // console.log(this.objectFromPHP);
                 this.addValueFromObject(this.objectFromPHP)
 
                 this.desactivateLoaderPicture();
@@ -141,68 +141,68 @@ sendRequestToPHP(formData) {
 }
 
 sendRequestTest(formData) {
-    console.log("switch");
+    // console.log("switch");
     
     switch(formData.action) {
         case 'createAccount': 
         this.activateLoaderPicture();
         formData['passwordVerify'] = '';
-        console.log("createAccount");
+        // console.log("createAccount");
         break;
         case 'connectUser': 
         this.activateLoaderPicture();
-        console.log("connectUser");
+        // console.log("connectUser");
         break;
         case 'logOutUser': 
         this.activateLoaderPicture();
-        console.log("logOutUser");
+        // console.log("logOutUser");
         formData['username'] = this.username;
         formData['token'] = this.token;
         break;
         case 'createRoom': 
         this.activateLoaderPicture();
-        console.log("createRoom");
+        // console.log("createRoom");
         formData['username'] = this.username;
         formData['token'] = this.token;
         break;
         case 'sendMessage': 
-        console.log("sendMessage");
+        // console.log("sendMessage");
         formData['username'] = this.username;
         formData['token'] = this.token;
         formData['roomname'] = this.roomname;
         break;
         case 'viewMessages': 
-        console.log("viewMessages");
+        // console.log("viewMessages");
         formData['username'] = this.username;
         formData['token'] = this.token;
         break;
         case 'viewRooms': 
-        console.log("viewRooms");
+        // console.log("viewRooms");
         formData['username'] = this.username;
         formData['token'] = this.token;
         break;
         case 'modifyUserName': 
         this.activateLoaderPicture();
-        console.log("modifyUserName");
+        // console.log("modifyUserName");
         formData['username'] = this.username;
         formData['token'] = this.token;
         break;
         case 'modifyPassword': 
         this.activateLoaderPicture();
-        console.log("modifyPassword");
+        // console.log("modifyPassword");
         formData['passwordVerify'] = '';
         formData['username'] = this.username;
         formData['token'] = this.token;
         break;
         case 'deleteRoom': 
         this.activateLoaderPicture();
-        console.log("deleteRoom");
+        // console.log("deleteRoom");
         formData['username'] = this.username;
         formData['token'] = this.token;
         break;
         case 'deleteAccount': 
         this.activateLoaderPicture();
-        console.log("deleteAccount");
+        // console.log("deleteAccount");
         formData['username'] = this.username;
         formData['token'] = this.token;
         break;
@@ -210,7 +210,7 @@ sendRequestTest(formData) {
         break;
     }
 
-    console.log(formData);
+    // console.log(formData);
     this.objectToSend = formData;
     this.sendRequestToPHP(this.objectToSend);
 }
